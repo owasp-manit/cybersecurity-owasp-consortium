@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&display=swap");
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background:
+    radial-gradient(circle at top, rgba(89, 9, 149, 0.35), transparent 32%),
+    radial-gradient(circle at bottom, rgba(3, 196, 161, 0.25), transparent 28%),
+    linear-gradient(180deg, #020203 0%, #07060d 55%, #020203 100%);
+  font-family: "Rajdhani", sans-serif;
+}
+
+/* Noise texture overlay for depth */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.loader-ui {
+  position: fixed;
+  left: 50%;
+  bottom: 10vh;
+  transform: translateX(-50%);
+  width: min(420px, calc(100vw - 40px));
+  text-align: center;
+  color: #f1e7b6;
+  text-transform: uppercase;
+  padding: 0;
+  text-shadow: 0 0 24px rgba(3, 196, 161, 0.12);
+  z-index: 10;
+}
+
+.loader-kicker {
+  margin-bottom: 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.42em;
+  color: rgba(241, 231, 182, 0.5);
+  min-height: 1.1em;
+  font-family: "Rajdhani", sans-serif;
+}
+
+/* Rotating sublabel line */
+.loader-sublabel {
+  margin-bottom: 12px;
+  font-size: 0.6rem;
+  letter-spacing: 0.32em;
+  color: rgba(3, 196, 161, 0.55);
+  font-family: "Rajdhani", sans-serif;
+  min-height: 1em;
+  transition: opacity 0.35s ease;
+}
+
+.loader-label {
+  position: relative;
+  margin-bottom: 16px;
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: 0.52em;
+  text-indent: 0.52em;
+  color: #f7efc7;
+  text-shadow:
+    0 0 10px rgba(241, 231, 182, 0.32),
+    0 0 28px rgba(198, 42, 136, 0.18);
+}
+
+.loader-bar {
+  position: relative;
+  height: 14px;
+  border: 1px solid rgba(241, 231, 182, 0.28);
+  background:
+    linear-gradient(90deg, rgba(241, 231, 182, 0.08), rgba(0, 189, 170, 0.08)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
+    rgba(255, 255, 255, 0.02);
+  box-shadow:
+    0 0 24px rgba(3, 196, 161, 0.18),
+    inset 0 0 12px rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.loader-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 14px,
+    rgba(255, 255, 255, 0.05) 14px,
+    rgba(255, 255, 255, 0.05) 15px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.45;
+  z-index: 2;
+}
+
+/* Scanline — fixed travel distance to match bar height */
+.loader-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent);
+  animation: scanline 2.6s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.loader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #150485 0%, #590995 28%, #c62a88 62%, #03c4a1 100%);
+  box-shadow:
+    0 0 20px rgba(198, 42, 136, 0.55),
+    0 0 28px rgba(3, 196, 161, 0.45);
+  position: relative;
+  will-change: transform;
+}
+
+.loader-bar-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 10px,
+      rgba(0, 0, 0, 0.16) 10px,
+      rgba(0, 0, 0, 0.16) 12px
+    );
+  animation: barGlitch 0.7s steps(2) infinite;
+  mix-blend-mode: screen;
+}
+
+/* Tick marks at 25%, 50%, 75% */
+.loader-bar-ticks {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  top: -5px;
+  width: 1px;
+  height: calc(100% + 10px);
+  background: rgba(241, 231, 182, 0.3);
+  transform: translateX(-50%);
+}
+
+.loader-percent {
+  position: relative;
+  margin-top: 12px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+  color: rgba(241, 231, 182, 0.8);
+  text-shadow: 0 0 10px rgba(241, 231, 182, 0.25);
+}
+
+/* Fixed: added position:relative so absolute pseudo-elements align correctly */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glitch-text::before {
+  color: rgba(3, 196, 161, 0.8);
+  transform: translate(-2px, 0);
+  clip-path: polygon(0 8%, 100% 0, 100% 48%, 0 40%);
+  animation: glitchShift 1.8s steps(2) infinite;
+}
+
+.glitch-text::after {
+  color: rgba(198, 42, 136, 0.75);
+  transform: translate(2px, 0);
+  clip-path: polygon(0 54%, 100% 48%, 100% 100%, 0 100%);
+  animation: glitchShift 1.2s steps(2) infinite reverse;
+}
+
+@keyframes glitchShift {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.55;
+  }
+  20% {
+    transform: translate(-3px, 1px);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translate(2px, -1px);
+    opacity: 0.35;
+  }
+  60% {
+    transform: translate(-1px, 0);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate(3px, 1px);
+    opacity: 0.45;
+  }
+}
+
+@keyframes barGlitch {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateX(-3px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(2px);
+    opacity: 0.35;
+  }
+  75% {
+    transform: translateX(-1px);
+    opacity: 0.7;
+  }
+}
+
+/* Fixed: scanline now travels only bar height (14px) */
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}

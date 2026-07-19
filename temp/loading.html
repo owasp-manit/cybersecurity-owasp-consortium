@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Loading</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 20px;
+      font-weight: 400;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.85), 0 0 30px rgba(255, 255, 255, 0.45);
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #container {
+      width: min(960px, 95vw);
+      min-height: 90vh;
+      padding: 18px;
+      background: transparent;
+    }
+
+    .prompt {
+      color: springgreen;
+    }
+
+    .line {
+      margin: 0 0 8px;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    #demo {
+      display: inline-block;
+      min-width: 1ch;
+      font-size: 1.15em;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .muted {
+      opacity: 0.92;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      margin-left: 4px;
+      background: #fff;
+      animation: blink 1s steps(1, end) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div class="line"><span class="prompt"><strong>r00t@linuxBox</strong>:~#</span> whoami</div>
+    <div class="line">root</div>
+    <div class="line"><span class="prompt"><strong>r00t@linuxBox</strong>:~#</span> ./loading_sequence</div>
+    <div class="line muted">Booting retro terminal interface...</div>
+    <div class="line muted">Internet speed test (will take ~25+ sec ...): <span id="demo"></span></div>
+    <div class="line"><span class="prompt"><strong>r00t@linuxBox</strong>:~#</span> waiting<span class="cursor">&nbsp;</span></div>
+  </div>
+
+  <script>
+    const elm = document.getElementById("demo");
+    const spin = ["-", "\\", "|", "/"];
+    const speed = 200;
+    let i = 0;
+
+    function renderSpinner() {
+      elm.textContent = spin[i];
+      i = (i + 1) % spin.length;
+    }
+
+    renderSpinner();
+    setInterval(renderSpinner, speed);
+  </script>
+</body>
+
+</html>

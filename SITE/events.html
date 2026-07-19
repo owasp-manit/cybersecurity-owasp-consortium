@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWASP MANIT Events</title>
+  <meta name="description" content="Event details, galleries, and program highlights from OWASP MANIT.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./events.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__orb ambient__orb--a"></div>
+    <div class="ambient__orb ambient__orb--b"></div>
+    <div class="ambient__orb ambient__orb--c"></div>
+    <div class="ambient__grid"></div>
+    <div class="ambient__noise"></div>
+  </div>
+
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="header__brand" href="./home.html" aria-label="OWASP MANIT Home">
+        <div class="brand__logomark">
+          <img src="../logo_owasp.png" alt="OWASP">
+        </div>
+        <div class="brand__text">
+          <span class="brand__sub">OWASP Chapter</span>
+          <strong class="brand__name">MANIT</strong>
+        </div>
+      </a>
+
+      <nav class="header__nav" aria-label="Primary navigation">
+        <a href="./home.html#about" class="nav__link">About</a>
+        <a href="./home.html#programs" class="nav__link">Programs</a>
+        <a href="#events-gallery" class="nav__link">Events</a>
+        <a href="./loading.html#teams" class="nav__link">Teams</a>
+      </nav>
+
+      <a class="btn btn--outline header__cta" href="./home.html#contact">Contact</a>
+
+      <button class="header__burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="events-hero section">
+      <div class="container events-hero__inner">
+        <div class="events-hero__copy">
+          <p class="section__kicker">Event archive</p>
+          <h1 class="section__title">Explore our chapter events without the clutter.</h1>
+          <p class="events-hero__lead">
+            Browse workshops, CTFs, and initiatives with clearer summaries, better hierarchy, and faster access to the full event story.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#events-gallery">
+              <span>Browse events</span>
+            </a>
+            <a class="btn btn--ghost" href="./home.html">Back to home</a>
+          </div>
+        </div>
+
+        <aside class="events-hero__panel" aria-labelledby="featured-event-heading">
+          <span class="pill pill--purple">Featured event</span>
+          <h2 class="events-hero__panel-title" id="featured-event-heading">Loading featured event...</h2>
+          <p class="events-hero__panel-copy" id="featured-event-copy">Preparing the strongest event snapshot for quick access.</p>
+          <div class="events-hero__panel-meta" id="featured-event-meta"></div>
+          <a class="btn btn--outline" id="featured-event-link" href="#events-gallery">Open archive</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Events overview">
+      <div class="container">
+        <div class="events-overview" id="events-overview">
+          <article class="events-overview__card">
+            <span class="events-overview__label">Total events</span>
+            <span class="events-overview__value">--</span>
+          </article>
+          <article class="events-overview__card">
+            <span class="events-overview__label">Categories</span>
+            <span class="events-overview__value">--</span>
+          </article>
+          <article class="events-overview__card">
+            <span class="events-overview__label">Latest event</span>
+            <span class="events-overview__value">--</span>
+          </article>
+          <article class="events-overview__card">
+            <span class="events-overview__label">Featured event</span>
+            <span class="events-overview__value">--</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="events-filter section" aria-label="Event category filters">
+      <div class="container">
+        <div class="events-filter__group" role="tablist" aria-label="Event categories">
+          <button class="events-filter__item is-active" type="button" data-category="All" aria-pressed="true">All</button>
+          <button class="events-filter__item" type="button" data-category="Workshop" aria-pressed="false">Workshops</button>
+          <button class="events-filter__item" type="button" data-category="CTF" aria-pressed="false">CTF</button>
+          <button class="events-filter__item" type="button" data-category="Initiative" aria-pressed="false">Initiatives</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="events-page section" id="events-gallery">
+      <div class="container">
+        <div class="events-page__shell">
+          <header class="section__header">
+            <p class="section__kicker">Programs in focus</p>
+            <h2 class="section__title">Each card leads with what matters before you click.</h2>
+          </header>
+
+          <div id="events-list" class="events-page__list" aria-live="polite">
+            <article class="events-loading">
+              <span class="pill">Loading</span>
+              <h3>Loading event data...</h3>
+              <p>Fetching the event archive and summary cards.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <canvas id="node-canvas" aria-hidden="true"></canvas>
+
+  <script src="./script.js"></script>
+  <script src="./events.js"></script>
+</body>
+</html>

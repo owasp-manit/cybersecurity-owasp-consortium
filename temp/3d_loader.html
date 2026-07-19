@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Skull Loader</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: #050505;
+      color: #f2f2f2;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 28%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: auto, 100% 4px;
+      opacity: 0.25;
+    }
+
+    .wrap {
+      text-align: center;
+      padding: 24px;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre;
+      font-size: clamp(10px, 1.5vw, 18px);
+      line-height: 1;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.18);
+      user-select: none;
+    }
+
+    .label {
+      margin-top: 20px;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <pre id="skull" aria-label="Animated ASCII skull"></pre>
+    <div class="label">Loading</div>
+  </main>
+
+  <script>
+    const frames = [
+`           .-""""-.
+         .'  .--.  '.
+        /   /    \\   \\
+       |   | 0  0 |   |
+       |   |  .-. |   |
+       |   |  \\_/ |   |
+       |   \\      /   |
+        \\   '----'   /
+      .-' ._______. '-.
+    .'    /  _ _  \\    '.
+   /     |  | | |  |     \\
+  |      |  |_|_|  |      |
+  |      |  |_|_|  |      |
+   \\      \\_______/      /
+    '._               _.'
+       '--._______.--'
+`,
+`           .-""""-.
+         .'  .--.  '.
+        /   /    \\   \\
+       |   | 0  0 |   |
+       |   |  .-. |   |
+       |   |  \\_/ |   |
+       |   \\      /   |
+        \\   '----'   /
+      .-' ._______. '-.
+    .'    /  _ _  \\    '.
+   /     |  | | |  |     \\
+  |      |   ___   |      |
+  |      |  /   \\  |      |
+   \\      \\_______/      /
+    '._               _.'
+       '--._______.--'
+`
+    ];
+
+    const skull = document.getElementById("skull");
+    let index = 0;
+
+    function render() {
+      skull.textContent = frames[index];
+      index = (index + 1) % frames.length;
+    }
+
+    render();
+    setInterval(render, 420);
+  </script>
+</body>
+
+</html>

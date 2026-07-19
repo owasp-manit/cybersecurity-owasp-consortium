@@ -1,0 +1,285 @@
+{
+  "source": "owasp_team.html",
+  "notes": [
+    "This file was extracted from the saved team page in this project.",
+    "Some image paths point to downloaded local JPG files.",
+    "Some image paths are numeric filenames referenced by the saved HTML and were not downloaded as separate image files in this folder.",
+    "Profile links are preserved exactly as found in the saved page.",
+    "Many members share the same Instagram and LinkedIn URLs, which likely indicates placeholder or copied profile links in the original site."
+  ],
+  "team_members": [
+    {
+      "name": "Pulkit Gangil",
+      "post": "Co-ordinator",
+      "image": "./owasp_team_files/1749812936654",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/pulkit1504/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Co-ordinator"
+      }
+    },
+    {
+      "name": "Pradeep Singh Yadav",
+      "post": "Co-coordinator",
+      "image": "./owasp_team_files/1756126929039",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/pradeepsinghyadav/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Co-coordinator"
+      }
+    },
+    {
+      "name": "Abizer Mhowwala",
+      "post": "Financial Lead",
+      "image": "./owasp_team_files/1725604174637",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/abizer-mhowwala-9668492aa/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Financial Lead"
+      }
+    },
+    {
+      "name": "Swati Menon",
+      "post": "Event Coordinator",
+      "image": "./owasp_team_files/swati-menon.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/owasp_nitb/",
+        "linkedin": "https://www.linkedin.com/company/owaspnitb"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Event Coordinator"
+      }
+    },
+    {
+      "name": "Paridhi Awasthi",
+      "post": "Technical Lead",
+      "image": "./owasp_team_files/paridhi-awasthi.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Technical Lead"
+      }
+    },
+    {
+      "name": "Shubhi Tiwari",
+      "post": "Media & PR Head",
+      "image": "./owasp_team_files/shubhi-tiwari.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Media & PR Head"
+      }
+    },
+    {
+      "name": "Ashish Mishra",
+      "post": "Operations Coordinator",
+      "image": "./owasp_team_files/1750930070061",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/ashish-mishra-54419231a/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Operations Coordinator"
+      }
+    },
+    {
+      "name": "Aditya Barnwal",
+      "post": "Assistant Finance Head",
+      "image": "./owasp_team_files/1709453557423",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Assistant Finance Head"
+      }
+    },
+    {
+      "name": "Tanishq Aggarwal",
+      "post": "Assistant Technical Head",
+      "image": "./owasp_team_files/1722853851412",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Assistant Technical Head"
+      }
+    },
+    {
+      "name": "Vishal Sharma",
+      "post": "Designer Lead",
+      "image": "./owasp_team_files/vishal-sharma.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Designer Lead"
+      }
+    },
+    {
+      "name": "Khushboo Gond",
+      "post": "Promotion Lead",
+      "image": "./owasp_team_files/1742045362950",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Promotion Lead"
+      }
+    },
+    {
+      "name": "Vijay Patil",
+      "post": "Sponsorship Lead",
+      "image": "./owasp_team_files/1735809425903",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Sponsorship Lead"
+      }
+    },
+    {
+      "name": "Kavya Chanap",
+      "post": "Design team",
+      "image": "./owasp_team_files/1743581424738",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Design team"
+      }
+    },
+    {
+      "name": "Sanjana Kori",
+      "post": "Design team",
+      "image": "./owasp_team_files/1748593863178",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Design team"
+      }
+    },
+    {
+      "name": "Prabhat Singh Raj",
+      "post": "Sponsorship team",
+      "image": "./owasp_team_files/prabhat-singh-raj.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Sponsorship team"
+      }
+    },
+    {
+      "name": "Pranjali Tiwari",
+      "post": "Promotion team",
+      "image": "./owasp_team_files/pranjali-tiwari.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Promotion team"
+      }
+    },
+    {
+      "name": "Shivansh",
+      "post": "Sponsorship team",
+      "image": "./owasp_team_files/1753980923175",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Sponsorship team"
+      }
+    },
+    {
+      "name": "Sanjita",
+      "post": "Promotion team",
+      "image": "./owasp_team_files/1733558505623",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Promotion team"
+      }
+    },
+    {
+      "name": "Mudit Kalya",
+      "post": "Sponsorship team",
+      "image": "./owasp_team_files/1729002352008",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "numeric_saved_path",
+        "role_text_raw": "Sponsorship team"
+      }
+    },
+    {
+      "name": "Ashu",
+      "post": "Promotion team",
+      "image": "./owasp_team_files/ashu.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Promotion team"
+      }
+    },
+    {
+      "name": "Raghav Verma",
+      "post": "Design team",
+      "image": "./owasp_team_files/raghav-verma.jpg",
+      "links": {
+        "instagram": "https://www.instagram.com/_gautampratap/",
+        "linkedin": "https://www.linkedin.com/in/gautampratap/"
+      },
+      "additional_info": {
+        "image_source_type": "local_downloaded_file",
+        "role_text_raw": "Design team"
+      }
+    }
+  ]
+}

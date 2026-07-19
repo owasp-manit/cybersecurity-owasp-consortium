@@ -1,0 +1,259 @@
+{
+  "events": [
+    {
+      "id": "netshield-workshop",
+      "name": "Netshield Workshop",
+      "status": "Upcoming Workshop",
+      "timelineStatus": "Upcoming",
+      "category": "Workshop",
+      "venue": "Main Lab Hall",
+      "date": "2026-10-15",
+      "featured": true,
+      "targetAudience": "Students building advanced cybersecurity skills",
+      "format": "Practical workshop with live simulation labs",
+      "tagline": "Practical exposure to ethical hacking, networking, and system defense.",
+      "summary": "A hands-on workshop focused on ethical hacking, networking, and cybersecurity fundamentals, designed to provide participants with practical exposure to modern security concepts.",
+      "whyItMattered": "It introduces ethical hacking, networking, and system defense fundamentals in a sandbox lab environment.",
+      "context": "The session covered network architecture, common security vulnerabilities, ethical hacking methodologies, and real-world attack and defense techniques through interactive demonstrations. Participants gained valuable insights into securing digital systems while building a strong foundation in cybersecurity awareness and best practices.",
+      "highlights": [
+        "Hands-on ethical hacking and networking labs",
+        "Network architecture and security vulnerability overviews",
+        "Real-world attack and defense simulation sessions"
+      ],
+      "coverImage": "",
+      "images": []
+    },
+    {
+      "id": "noobathon",
+      "name": "Noobathon",
+      "status": "Hackathon Track",
+      "timelineStatus": "Past",
+      "category": "Hackathon",
+      "venue": "Computer Center",
+      "date": "2025-10-18",
+      "featured": false,
+      "targetAudience": "Beginners and cross-functional teams",
+      "format": "24-hour collaborative challenge",
+      "tagline": "Beginner hackathon introducing core InfoSec and UI/UX challenges.",
+      "summary": "A beginner-friendly hackathon focused on Information Security awareness and UI/UX, designed to introduce participants to cybersecurity concepts through hands-on challenges and collaborative problem-solving.",
+      "whyItMattered": "It provided a gentle entry point into cybersecurity and UI/UX challenges for over 400 beginner developers.",
+      "context": "The event brought together 400+ participants, including 150+ students from LNCT, IISER, IES, and other institutions, fostering innovation, teamwork, and practical learning.",
+      "highlights": [
+        "Beginner-friendly InfoSec & UI/UX hackathon",
+        "400+ total participants, including 150+ from external colleges",
+        "Hands-on security challenges and collaborative problem-solving"
+      ],
+      "coverImage": "",
+      "images": []
+    },
+    {
+      "id": "cyberhunter-2-0",
+      "name": "CyberHunter 2.0",
+      "status": "Competition Track",
+      "timelineStatus": "Past",
+      "category": "Competition",
+      "venue": "Auditorium Labs",
+      "date": "2026-02-28",
+      "featured": false,
+      "targetAudience": "Intermediate and advanced CTF players",
+      "format": "Jeopardy-style CTF challenge",
+      "tagline": "Advanced cybersecurity competition with real-world challenge tracks.",
+      "summary": "CyberHunter 2.0 was an advanced cybersecurity competition featuring real-world security challenges, Capture the Flag (CTF) tasks, and problem-solving exercises.",
+      "whyItMattered": "It pushed participants to solve advanced cryptography, web security, and forensics challenges under time pressure.",
+      "context": "Participants enhanced their skills in ethical hacking, cryptography, web security, and digital forensics while competing in a fast-paced, collaborative environment.",
+      "highlights": [
+        "Advanced Capture the Flag (CTF) tasks",
+        "Hands-on exercises in ethical hacking & cryptography",
+        "Focus on web security and digital forensics under time pressure"
+      ],
+      "coverImage": "",
+      "images": []
+    },
+    {
+      "id": "cyberbasics-1-0",
+      "name": "Cyber Basics 1.0",
+      "status": "Foundation Track",
+      "timelineStatus": "Past",
+      "category": "Workshop",
+      "venue": "Civil Auditorium",
+      "date": "2025-04-12",
+      "featured": false,
+      "targetAudience": "Beginners and students building core cyber hygiene",
+      "format": "Awareness workshop",
+      "tagline": "Introductory cybersecurity workshop aimed at beginners.",
+      "summary": "Cyber Basics 1.0 was an introductory cybersecurity workshop aimed at beginners interested in Information Security.",
+      "whyItMattered": "It gave newcomers a practical starting point for recognizing everyday digital threats and turning security awareness into repeatable habits.",
+      "context": "The session covered essential concepts such as cyber hygiene, networking fundamentals, common cyber threats, and basic defense techniques through interactive demonstrations and practical learning activities.",
+      "agenda": [
+        "Cyber hygiene foundations",
+        "Phishing identification and response basics",
+        "Ransomware awareness through case-study walkthroughs"
+      ],
+      "whatHappened": [
+        {
+          "title": "Core awareness sessions",
+          "description": "Participants were introduced to practical cyber hygiene concepts through accessible, beginner-friendly sessions."
+        },
+        {
+          "title": "Phishing and ransomware focus",
+          "description": "The program emphasized threat recognition, phishing response basics, and ransomware awareness using real-world style examples."
+        },
+        {
+          "title": "First-step confidence building",
+          "description": "The workshop was structured to help newer participants build confidence before moving into more advanced security topics."
+        }
+      ],
+      "highlights": [
+        "Cyber hygiene and security foundations",
+        "Networking basics and common cyber threat overviews",
+        "Interactive demonstrations and defensive techniques"
+      ],
+      "outcomes": [
+        "Built a practical foundation in cyber hygiene.",
+        "Improved threat recognition for phishing and ransomware patterns.",
+        "Connected security awareness to daily student and creator workflows."
+      ],
+      "takeaways": [
+        "Recognize common phishing signals.",
+        "Understand the basics of ransomware risk.",
+        "Adopt safer day-to-day online habits."
+      ],
+      "speakers": [],
+      "attendance": null,
+      "winners": [],
+      "coverImage": "../images/cyberbasics/poster.jpg",
+      "images": [
+        "../images/cyberbasics/poster.jpg",
+        "../images/cyberbasics/1.JPG",
+        "../images/cyberbasics/2.JPG",
+        "../images/cyberbasics/3.JPG",
+        "../images/cyberbasics/4.JPG",
+        "../images/cyberbasics/6.JPG",
+        "../images/cyberbasics/7.JPG",
+        "../images/cyberbasics/8.JPG",
+        "../images/cyberbasics/9.JPG"
+      ]
+    },
+    {
+      "id": "owasp-ctf",
+      "name": "OWASP CTF",
+      "status": "Competition Track",
+      "timelineStatus": "Past",
+      "category": "CTF",
+      "venue": "Main Lab Hall",
+      "date": "2025-05-25",
+      "featured": true,
+      "targetAudience": "Students interested in hands-on security challenges",
+      "format": "Jeopardy-style competition",
+      "tagline": "Vulnerability exploitation challenges based on OWASP Top 10.",
+      "summary": "The OWASP Capture the Flag (CTF) competition challenged participants to identify and exploit common web application vulnerabilities based on the OWASP Top 10.",
+      "whyItMattered": "It translated theory into hands-on challenge solving and gave participants a closer feel for realistic attacker and defender workflows.",
+      "context": "The event provided hands-on experience in web security, secure coding practices, and vulnerability assessment while encouraging teamwork and critical thinking.",
+      "agenda": [
+        "Web exploitation challenges",
+        "Cryptography challenges",
+        "Forensics challenges",
+        "Reverse engineering challenges"
+      ],
+      "whatHappened": [
+        {
+          "title": "Multi-category challenge board",
+          "description": "Participants worked across web exploitation, cryptography, forensics, and reverse engineering challenges."
+        },
+        {
+          "title": "Time-pressure problem solving",
+          "description": "The event rewarded speed, accuracy, and persistence in a high-pressure competitive environment."
+        },
+        {
+          "title": "Collaborative technical learning",
+          "description": "Challenge-based work encouraged peer discussion and learning through direct experimentation."
+        }
+      ],
+      "highlights": [
+        "Exploitation of OWASP Top 10 web vulnerabilities",
+        "Hands-on experience in secure coding and assessment",
+        "Teamwork-driven security challenge environment"
+      ],
+      "outcomes": [
+        "Turned theoretical topics into practical challenge solving.",
+        "Sharpened speed and technical precision under pressure.",
+        "Exposed participants to realistic offensive and defensive thinking patterns."
+      ],
+      "takeaways": [
+        "Apply security concepts through hands-on exercises.",
+        "Improve collaborative decision-making under time pressure.",
+        "Practice structured problem solving across multiple security domains."
+      ],
+      "speakers": [],
+      "attendance": null,
+      "winners": [],
+      "coverImage": "../images/ctf/poster.jpg",
+      "images": [
+        "../images/ctf/poster.jpg",
+        "../images/ctf/ctf.jpg",
+        "../images/ctf/ctf2.jpg",
+        "../images/ctf/ctf3.jpg",
+        "../images/ctf/ctf4.jpg"
+      ]
+    },
+    {
+      "id": "cyberhunter-1-0",
+      "name": "Cyber Hunter 1.0",
+      "status": "Advanced Operations",
+      "timelineStatus": "Past",
+      "category": "Initiative",
+      "venue": "Analytics Studio",
+      "date": "2025-09-15",
+      "featured": false,
+      "targetAudience": "Participants moving from awareness into analyst-style security work",
+      "format": "Scenario-led operations drill",
+      "tagline": "Interactive cryptography and strategic problem-solving puzzle arena.",
+      "summary": "Cyber Hunter 1.0 was an interactive cybersecurity challenge centered on cryptography, logical reasoning, and strategic problem-solving. Participants decoded clues, solved security puzzles, and completed multiple challenge stages in a competitive environment.",
+      "whyItMattered": "It helped participants move past awareness-level learning and into investigation, detection, and response thinking closer to real operations work.",
+      "context": "The event attracted 500+ participants, providing students with an engaging platform to test and strengthen their analytical and cybersecurity skills.",
+      "agenda": [
+        "Scenario-based investigation flow",
+        "Telemetry awareness and incident analysis",
+        "Threat hunting and response coordination"
+      ],
+      "whatHappened": [
+        {
+          "title": "Scenario-led investigation",
+          "description": "Participants worked through investigation-driven drills instead of passive awareness content."
+        },
+        {
+          "title": "Detection mindset practice",
+          "description": "The event focused on detection patterns, telemetry awareness, and analyst-style reasoning."
+        },
+        {
+          "title": "Operational coordination",
+          "description": "Collaborative response thinking was used to mirror pressure found in security operations environments."
+        }
+      ],
+      "highlights": [
+        "Interactive cryptography and logic puzzles",
+        "Multi-stage challenge map for problem-solving",
+        "Attracted 500+ active participants testing security skills"
+      ],
+      "outcomes": [
+        "Strengthened investigation and detection thinking.",
+        "Connected telemetry awareness to incident analysis.",
+        "Practiced collaborative decision-making in simulated operations scenarios."
+      ],
+      "takeaways": [
+        "Read scenarios through an analyst lens.",
+        "Use detection patterns to guide investigation.",
+        "Coordinate response decisions under simulated pressure."
+      ],
+      "speakers": [],
+      "attendance": null,
+      "winners": [],
+      "coverImage": "../images/ch/poster.jpg",
+      "images": [
+        "../images/ch/poster.jpg",
+        "../images/ch/1.jpg",
+        "../images/ch/cyberhntr.jpg"
+      ]
+    }
+  ]
+}
