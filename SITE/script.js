@@ -16,10 +16,10 @@ const Utils = {
 const CONFIG = {
   particleCount: 1800,  // Target count of particles on full screen (scaled dynamically)
   maxDistance: 120,   // Maximum distance for line connections
-  particleRadius: 2.2, // Base particle radius
+  particleRadius: 0, // Base particle radius
   speed: 0.6,         // Speed multiplier
   lineWidth: 1.0,     // Base width of connection lines
-  glow: true,         // Enable glowing particles and lines
+  glow: false,         // Enable glowing particles and lines
   colors: {
     // particle: '255, 0, 68',  // Reddish-pink RGB values
     // line: '255, 0, 168',      // Reddish RGB values
