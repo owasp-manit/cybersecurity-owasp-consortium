@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OWASP // System Boot</title>
+  <link rel="icon" type="image/png" href="logo_owasp.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@300;400;500&display=swap');
 
@@ -200,6 +201,29 @@
       text-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
       opacity: 0;
       transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+    }
+
+    /* ── Logo Icon ── */
+    .boot-logo {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 12px;
+      object-fit: contain;
+      opacity: 0;
+      transform: scale(0.9);
+      filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.45));
+      transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+      animation: logoFloat 4s ease-in-out infinite alternate;
+    }
+
+    .boot-logo.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @keyframes logoFloat {
+      0% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.45)); }
+      100% { transform: scale(1.04) translateY(-4px); filter: drop-shadow(0 0 24px rgba(0, 229, 255, 0.7)); }
     }
 
     .ascii-subtitle.visible {
@@ -454,6 +478,7 @@
 
   <!-- Main HUD Overlay -->
   <div class="hud-overlay">
+    <img src="logo_owasp.png" alt="OWASP Icon" class="boot-logo" id="boot-logo">
     <pre class="ascii-art" id="ascii-logo"></pre>
     <div class="ascii-subtitle" id="ascii-sub">Web Application Security // sudo_kill</div>
   </div>
@@ -503,6 +528,7 @@
     // ── Boot sequence controller ──
     const asciiEl = document.getElementById('ascii-logo');
     const asciiSub = document.getElementById('ascii-sub');
+    const bootLogo = document.getElementById('boot-logo');
     const termLines = document.getElementById('term-lines');
     const progressWrap = document.getElementById('progress-wrap');
     const progressFill = document.getElementById('progress-fill');
@@ -511,8 +537,9 @@
 
     let bootStart = performance.now();
 
-    // Reveal ASCII art
+    // Reveal ASCII art & Logo
     setTimeout(() => {
+      if (bootLogo) bootLogo.classList.add('visible');
       asciiEl.textContent = ASCII_LOGO;
       asciiEl.classList.add('visible');
     }, 150);

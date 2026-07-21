@@ -110,7 +110,9 @@ const renderOverview = (events = []) => {
 
 const renderEventCard = (event, index = 0, total = 0) => {
   const images = safeArray(event.images);
-  const firstImage = event.coverImage || images[0] || "";
+  const dummyImage = "../images/image_load_error.svg";
+  const firstImage = event.coverImage || event.bannerImage || event.posterImage || images[0] || dummyImage;
+  const isDummy = !event.coverImage && !event.bannerImage && !event.posterImage && images.length === 0;
   const galleryCount = Math.max(images.length - 1, 0);
   const timelineStatus = getTimelineStatus(event);
   const statusClass = timelineStatus.toLowerCase() === "upcoming"
@@ -133,9 +135,9 @@ const renderEventCard = (event, index = 0, total = 0) => {
 
   return `
     <article class="event-card ${layoutClass} reveal" id="preview-${escapeHtml(event.id)}">
-      <a class="event-card__media" href="./event.html?id=${encodeURIComponent(event.id)}" aria-label="Open ${escapeHtml(event.name)} details">
-        ${firstImage ? `<img src="${escapeHtml(firstImage)}" alt="${escapeHtml(event.name)} poster or featured event image" loading="lazy">` : ""}
-        <span class="event-card__gallery-count">${galleryCount > 0 ? `${galleryCount} gallery photos` : "Poster only"}</span>
+      <a class="event-card__media ${isDummy ? "event-card__media--has-dummy" : ""}" href="./event.html?id=${encodeURIComponent(event.id)}" aria-label="Open ${escapeHtml(event.name)} details">
+        <img src="${escapeHtml(firstImage)}" alt="${escapeHtml(event.name)} poster or featured event image" loading="lazy" class="${isDummy ? "event-card__media-placeholder" : ""}" onerror="this.onerror=null; this.src='../images/image_load_error.svg'; this.parentElement.classList.add('event-card__media--has-dummy'); this.classList.add('event-card__media-placeholder');">
+        <span class="event-card__gallery-count">${galleryCount > 0 ? `${galleryCount} gallery photos` : (isDummy ? "Preview Offline" : "Poster only")}</span>
       </a>
       <div class="event-card__body">
         <div class="event-card__chips">${chips}</div>
