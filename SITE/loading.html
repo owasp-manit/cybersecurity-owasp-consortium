@@ -4,7 +4,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loading</title>
+  <title>OWASP MANIT | Loading...</title>
+  <meta name="description" content="Loading the official portal of OWASP Student Chapter at MANIT Bhopal. Please wait while the page resources load.">
+  <meta name="keywords" content="OWASP MANIT, OWASP Bhopal, cybersecurity MANIT">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://owaspmanit.in/SITE/loading.html">
+  <meta property="og:title" content="OWASP MANIT | Loading...">
+  <meta property="og:description" content="Loading the official portal of OWASP Student Chapter at MANIT Bhopal. Please wait while the page resources load.">
+  <meta property="og:image" content="https://owaspmanit.in/logo_owasp.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://owaspmanit.in/SITE/loading.html">
+  <meta property="twitter:title" content="OWASP MANIT | Loading...">
+  <meta property="twitter:description" content="Loading the official portal of OWASP Student Chapter at MANIT Bhopal. Please wait while the page resources load.">
+  <meta property="twitter:image" content="https://owaspmanit.in/logo_owasp.png">
+
   <link rel="icon" type="image/png" href="../logo_owasp.png" />
   <link rel="stylesheet" href="loading_style.css" />
 </head>
@@ -113,7 +130,7 @@
   <div class="loader-ui">
     <div class="loader-kicker" id="loader-kicker">threat surface initializing</div>
     <!-- <div class="loader-sublabel" id="loader-sublabel">&nbsp;</div> -->
-    <div class="loader-label glitch-text" data-text="OWASP">OWASP</div>
+    <h1 class="loader-label glitch-text" data-text="OWASP">OWASP</h1>
     <div class="loader-bar" aria-label="Loading progress">
       <div class="loader-bar-ticks">
         <span class="tick" style="left:25%"></span>
@@ -139,7 +156,7 @@
           const section = parts[1];
           let url = page + '.html';
           if (section) url += '#' + section;
-          window.location.href = url;
+          window.location.replace(url);
         }
       }, delay);
     });

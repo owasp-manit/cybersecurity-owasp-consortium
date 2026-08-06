@@ -1,43 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
   <defs>
-    <linearGradient id="errorBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1628"/>
-      <stop offset="50%" stop-color="#040a14"/>
-      <stop offset="100%" stop-color="#020408"/>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#070a14"/>
     </linearGradient>
-    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="rgba(0, 240, 255, 0.1)"/>
-      <stop offset="50%" stop-color="rgba(0, 240, 255, 0.6)"/>
-      <stop offset="100%" stop-color="rgba(0, 240, 255, 0.1)"/>
+    <linearGradient id="glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.85"/>
     </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="800" height="450" fill="url(#errorBg)"/>
-
-  <!-- Subtle Cyber Cross Lines -->
-  <path d="M0 0L800 450M800 0L0 450" stroke="rgba(0, 240, 255, 0.04)" stroke-width="1.5"/>
-
-  <!-- Card Frame Placeholder -->
-  <rect x="250" y="85" width="300" height="200" rx="16" fill="rgba(0, 240, 255, 0.03)" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" stroke-dasharray="8 6"/>
-
-  <!-- Image Load Error Vector Graphic -->
-  <!-- Photo Outline -->
-  <rect x="310" y="125" width="180" height="120" rx="8" fill="none" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.5"/>
   
-  <!-- Glowing Sun / Node -->
-  <circle cx="445" cy="155" r="14" fill="rgba(168, 85, 247, 0.5)" stroke="rgba(168, 85, 247, 0.8)" stroke-width="1.5"/>
+  <rect width="100%" height="100%" fill="url(#bg-grad)"/>
+  
+  <!-- Subtle High-tech grid overlay -->
+  <g stroke="rgba(255, 255, 255, 0.03)" stroke-width="1">
+    <path d="M 0,25 L 400,25 M 0,50 L 400,50 M 0,75 L 400,75 M 0,100 L 400,100 M 0,125 L 400,125 M 0,150 L 400,150 M 0,175 L 400,175 M 0,200 L 400,200 M 0,225 L 400,225" />
+    <path d="M 50,0 L 50,250 M 100,0 L 100,250 M 150,0 L 150,250 M 200,0 L 200,250 M 250,0 L 250,250 M 300,0 L 300,250 M 350,0 L 350,250" />
+  </g>
 
-  <!-- Mountain / Wave Vectors -->
-  <path d="M320 225L365 175L400 210L435 165L480 225Z" fill="rgba(0, 240, 255, 0.12)" stroke="rgba(0, 240, 255, 0.6)" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Generic landscape/photo placeholder icon with a glow -->
+  <g filter="url(#glow)" transform="translate(160, 60)">
+    <!-- Photo Frame -->
+    <rect x="0" y="0" width="80" height="60" rx="8" ry="8" fill="none" stroke="url(#glow-grad)" stroke-width="2"/>
+    <!-- Mountains -->
+    <path d="M 8,48 L 35,22 L 54,39 L 72,20" fill="none" stroke="url(#glow-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Sun -->
+    <circle cx="56" cy="18" r="5" fill="none" stroke="url(#glow-grad)" stroke-width="2"/>
+  </g>
 
-  <!-- Warning Cross Line over Image -->
-  <line x1="330" y1="135" x2="470" y2="235" stroke="rgba(244, 63, 94, 0.5)" stroke-width="2" stroke-dasharray="4 4"/>
-
-  <!-- Tech Status Divider -->
-  <line x1="200" y1="315" x2="600" y2="315" stroke="url(#lineGrad)" stroke-width="1.5"/>
-
-  <!-- Text Headlines -->
-  <text x="400" y="348" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" fill="#00f0ff" text-anchor="middle" letter-spacing="3">IMAGE LOAD ERROR / PREVIEW OFFLINE</text>
-  <text x="400" y="375" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="rgba(255, 255, 255, 0.55)" text-anchor="middle" letter-spacing="1.5">OWASP MANIT CYBERSECURITY CONSORTIUM</text>
+  <!-- Typography -->
+  <text x="200" y="165" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="12" font-weight="600" fill="#00e5ff" letter-spacing="1.5" text-anchor="middle" opacity="0.9">
+    PREVIEW UNAVAILABLE
+  </text>
+  <text x="200" y="188" font-family="'Syne', 'Inter', sans-serif" font-size="10" fill="rgba(255, 255, 255, 0.4)" text-anchor="middle">
+    No media assets loaded
+  </text>
 </svg>

@@ -59,6 +59,7 @@ body {
 
 .loader-label {
   position: relative;
+  margin-top: 0;
   margin-bottom: 16px;
   font-family: "Orbitron", sans-serif;
   font-size: clamp(1.9rem, 4vw, 2.8rem);

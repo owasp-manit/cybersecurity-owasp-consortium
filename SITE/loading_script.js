@@ -135,7 +135,7 @@ anime({
       var section = parts[1];
       var url = page + '.html';
       if (section) url += '#' + section;
-      window.location.href = url;
+      window.location.replace(url);
     }
   }
 });

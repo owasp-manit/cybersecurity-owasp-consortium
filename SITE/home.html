@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OWASP MANIT | Cyber Defense Consortium</title>
-  <meta name="description" content="Student-driven cybersecurity community at MANIT Bhopal. Learn. Build. Defend.">
+  <meta name="description" content="OWASP MANIT — Student-driven cybersecurity community at NIT Bhopal. Workshops, CTFs, and hands-on security training.">
+  <meta name="keywords" content="OWASP MANIT, OWASP Bhopal, cybersecurity club MANIT, Capture The Flag MANIT, ethical hacking Bhopal">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://owaspmanit.in/SITE/home.html">
+  <meta property="og:title" content="OWASP MANIT | Cyber Defense Consortium">
+  <meta property="og:description" content="OWASP MANIT — Student-driven cybersecurity community at NIT Bhopal. Workshops, CTFs, and hands-on security training.">
+  <meta property="og:image" content="https://owaspmanit.in/logo_owasp.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://owaspmanit.in/SITE/home.html">
+  <meta property="twitter:title" content="OWASP MANIT | Cyber Defense Consortium">
+  <meta property="twitter:description" content="OWASP MANIT — Student-driven cybersecurity community at NIT Bhopal. Workshops, CTFs, and hands-on security training.">
+  <meta property="twitter:image" content="https://owaspmanit.in/logo_owasp.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -27,7 +43,7 @@
     <div class="header__inner container">
       <a class="header__brand" href="#hero" aria-label="OWASP MANIT Home">
         <div class="brand__logomark">
-          <img src="../logo_owasp.png" alt="OWASP">
+          <img src="../logo_owasp.png" alt="OWASP" onerror="this.style.display='none';">
         </div>
         <div class="brand__text">
           <span class="brand__sub">OWASP Chapter</span>
@@ -52,7 +68,8 @@
   </header>
 
   <!-- ═══════════════════════ HERO ═══════════════════════ -->
-  <section class="hero" id="hero">
+  <main>
+    <section class="hero" id="hero">
     <div class="hero__inner container">
 
       <!-- Left: headline + CTAs -->
@@ -120,7 +137,7 @@
 
         <!-- Floating accent cards -->
         <div class="hero__float hero__float--one">
-          <img src="../images/ctf/poster.jpg" alt="CTF">
+          <img src="../images/ctf/poster.jpg" alt="CTF" onerror="this.onerror=null; this.src='../images/image_load_error.svg';">
           <div>
             <span>CTF Arena</span>
             <strong>Challenge Active</strong>
@@ -305,7 +322,7 @@
 
         <article class="prog-card">
           <div class="prog-card__media">
-            <img src="../images/cyberbasics/poster.jpg" alt="CyberBasics 1.0">
+            <img src="../images/cyberbasics/poster.jpg" alt="CyberBasics 1.0" onerror="this.onerror=null; this.src='../images/image_load_error.svg';">
             <div class="prog-card__media-overlay"></div>
           </div>
           <div class="prog-card__body">
@@ -318,7 +335,7 @@
 
         <article class="prog-card">
           <div class="prog-card__media">
-            <img src="../images/ctf/poster.jpg" alt="OWASP MANIT CTF">
+            <img src="../images/ctf/poster.jpg" alt="OWASP MANIT CTF" onerror="this.onerror=null; this.src='../images/image_load_error.svg';">
             <div class="prog-card__media-overlay"></div>
           </div>
           <div class="prog-card__body">
@@ -331,7 +348,7 @@
 
         <article class="prog-card prog-card--wide">
           <div class="prog-card__media">
-            <img src="../images/ch/poster.jpg" alt="CyberHunter Ops">
+            <img src="../images/ch/poster.jpg" alt="CyberHunter Ops" onerror="this.onerror=null; this.src='../images/image_load_error.svg';">
             <div class="prog-card__media-overlay"></div>
           </div>
           <div class="prog-card__body">
@@ -363,15 +380,9 @@
 
           <div class="events-grid">
             <article class="event-card event-card--upcoming">
-              <span class="event-card__date">April 2026</span>
-              <h3>Secure Web Workshop</h3>
-              <p>Guided practical session on common web vulnerabilities, secure coding patterns, and real attack demonstrations.</p>
-            </article>
-
-            <article class="event-card event-card--upcoming">
-              <span class="event-card__date">May 2026</span>
-              <h3>Beginner Training Bootcamp</h3>
-              <p>A structured training series covering networking basics, Linux fundamentals, recon workflows, and defensive thinking.</p>
+              <span class="event-card__date">Tentative October 2026</span>
+              <h3>Netshield Workshop</h3>
+              <p>Hands-on session covering network architecture, common security vulnerabilities, and attack/defense simulation labs.</p>
             </article>
           </div>
         </div>
@@ -399,6 +410,18 @@
               <span class="event-card__date">CyberHunter Ops</span>
               <h3>Threat Hunting and Response Drills</h3>
               <p>Scenario-based exercises built around investigation flow, team coordination, and analyst-style decision making.</p>
+            </article>
+
+            <article class="event-card">
+              <span class="event-card__date">Noobathon</span>
+              <h3>Beginner Hackathon Track</h3>
+              <p>A 24-hour collaborative challenge introducing core Information Security and UI/UX design concepts to beginner developers.</p>
+            </article>
+
+            <article class="event-card">
+              <span class="event-card__date">CyberHunter 2.0</span>
+              <h3>Advanced CTF Competition</h3>
+              <p>Jeopardy-style CTF challenge focusing on advanced cryptography, web security, and digital forensics under time pressure.</p>
             </article>
           </div>
         </div>
@@ -454,6 +477,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
   <footer class="footer">

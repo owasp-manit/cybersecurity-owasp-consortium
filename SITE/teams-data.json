@@ -8,62 +8,52 @@
       "members": [
         {
           "name": "Pulkit Gangil",
-          "role": "Co-ordinator",
+          "role": "President",
           "fallback": "PG",
           "image": "../owasp_team_files/Pulkit-Gangil.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
+            "instagram": "",
             "linkedin": "https://www.linkedin.com/in/pulkit1504/"
           }
         },
         {
           "name": "Pradeep Singh Yadav",
-          "role": "Co-coordinator",
+          "role": "Vice President",
           "fallback": "PS",
           "image": "../owasp_team_files/Pradeep-Singh-Yadav.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
+            "instagram": "",
             "linkedin": "https://www.linkedin.com/in/pradeepsinghyadav/"
           }
         },
         {
           "name": "Abizer Mhowwala",
-          "role": "Financial Lead",
+          "role": "Treasurer",
           "fallback": "AM",
           "image": "../owasp_team_files/Abizer-Mhowwala.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
+            "instagram": "",
             "linkedin": "https://www.linkedin.com/in/abizer-mhowwala-9668492aa/"
           }
         },
         {
-          "name": "Swati Menon",
-          "role": "Event Coordinator",
-          "fallback": "SM",
-          "image": "../owasp_team_files/swati-menon.jpg",
-          "socials": {
-            "instagram": "https://www.instagram.com/owasp_nitb/",
-            "linkedin": "https://www.linkedin.com/company/owaspnitb"
-          }
-        },
-        {
           "name": "Ashish Mishra",
-          "role": "Operations Coordinator",
+          "role": "Coordinator",
           "fallback": "AM",
           "image": "../owasp_team_files/Ashish-Mishra.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
+            "instagram": "",
             "linkedin": "https://www.linkedin.com/in/ashish-mishra-54419231a/"
           }
         },
         {
-          "name": "Aditya Barnwal",
-          "role": "Assistant Finance Head",
-          "fallback": "AB",
-          "image": "../owasp_team_files/1709453557423",
+          "name": "Tanishq Aggarwal",
+          "role": "Co-Coordinator",
+          "fallback": "TA",
+          "image": "../owasp_team_files/Tanishq-Agrawal.jpeg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": "https://www.linkedin.com/in/tanishq-agrawal1?utm_source=share_via&utm_content=profile&utm_medium=member_android"
           }
         }
       ]
@@ -75,23 +65,53 @@
       "description": "Members focused on chapter technical leadership and practical execution support.",
       "members": [
         {
-          "name": "Paridhi Awasthi",
-          "role": "Technical Lead",
-          "fallback": "PA",
-          "image": "../owasp_team_files/paridhi-awasthi.jpg",
+          "name": "Mudit Kalya",
+          "role": "Technical Head",
+          "fallback": "MK",
+          "image": "../owasp_team_files/Mudit-Kalya.jpeg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": "https://www.linkedin.com/in/mudit-kalya-884479324?utm_source=share_via&utm_content=profile&utm_medium=member_android"
           }
         },
         {
-          "name": "Tanishq Aggarwal",
-          "role": "Assistant Technical Head",
-          "fallback": "TA",
-          "image": "../owasp_team_files/Tanishq-Agrawal.jpeg",
+          "name": "Raghav Verma",
+          "role": "Web Development Head",
+          "fallback": "RV",
+          "image": "../owasp_team_files/Raghav-Verma.jpeg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/tanishq-agrawal1?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            "instagram": "",
+            "linkedin": "https://www.linkedin.com/in/raghav-verma-9b845a318?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          }
+        },
+        {
+          "name": "Shivansh-Kumar-Sahu",
+          "role": "Event Management Head",
+          "fallback": "S",
+          "image": "../owasp_team_files/Shivansh-Kumar-Sahu.jpg",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Aditya Barnwal",
+          "role": "Financial Head",
+          "fallback": "AB",
+          "image": "../owasp_team_files/Aaditya-Barnwal.jpg",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Ashu-Debnath",
+          "role": "Logistics Head",
+          "fallback": "A",
+          "image": "../owasp_team_files/Ashu-Debnath.jpg",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
           }
         }
       ]
@@ -103,53 +123,53 @@
       "description": "Members shaping the chapter's visual identity, content presence, and design output.",
       "members": [
         {
-          "name": "Shubhi Tiwari",
-          "role": "Media & PR Head",
-          "fallback": "ST",
-          "image": "../owasp_team_files/shubhi-tiwari.jpg",
+          "name": "Riddhi Jaiswal",
+          "role": "Designer Head",
+          "fallback": "RJ",
+          "image": "../owasp_team_files/Riddhi-Jaiswal.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
-          }
-        },
-        {
-          "name": "Vishal Sharma",
-          "role": "Designer Lead",
-          "fallback": "VS",
-          "image": "../owasp_team_files/vishal-sharma.jpg",
-          "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": ""
           }
         },
         {
           "name": "Kavya Chanap",
-          "role": "Design Team",
+          "role": "Video-Editing Head",
           "fallback": "KC",
-          "image": "../owasp_team_files/Kavya-Chanap.jpeg",
+          "image": "../owasp_team_files/Kavya-Chanap.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
+            "instagram": "",
             "linkedin": "https://www.linkedin.com/in/kavya-chanap-05537b348?utm_source=share_via&utm_content=profile&utm_medium=member_android"
           }
         },
         {
           "name": "Sanjana Kori",
-          "role": "Design Team",
+          "role": "Content Head",
           "fallback": "SK",
-          "image": "../owasp_team_files/Sanjna-Kori.jpeg",
+          "image": "../owasp_team_files/Sanjana-Kabir.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
+            "instagram": "",
             "linkedin": "https://www.linkedin.com/in/sanjna-kori-245b5232b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
           }
         },
         {
-          "name": "Raghav Verma",
-          "role": "Design Team",
-          "fallback": "RV",
-          "image": "../owasp_team_files/Raghav-Verma.jpeg",
+          "name": "Pranjali Tiwari",
+          "role": "Designer Lead",
+          "fallback": "PT",
+          "image": "../owasp_team_files/pranjali-tiwari.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/raghav-verma-9b845a318?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Prabhat Singh Raj",
+          "role": "Content Lead",
+          "fallback": "PS",
+          "image": "../owasp_team_files/Prabhat-Singh-Raj.jpg",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
           }
         }
       ]
@@ -161,83 +181,231 @@
       "description": "Members driving chapter visibility, promotions, and sponsor-facing outreach efforts.",
       "members": [
         {
-          "name": "Khushboo Gond",
-          "role": "Promotion Lead",
+          "name": "Khushboo Gaud",
+          "role": "PR Head",
           "fallback": "KG",
-          "image": "../owasp_team_files/Khushboo-Gond.jpeg",
+          "image": "../owasp_team_files/Khushboo-Gaud.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
+            "instagram": "",
             "linkedin": "https://www.linkedin.com/in/khushboo-gond-046919356?utm_source=share_via&utm_content=profile&utm_medium=member_android"
           }
         },
         {
-          "name": "Vijay Patil",
-          "role": "Sponsorship Lead",
-          "fallback": "VP",
-          "image": "../owasp_team_files/1735809425903",
+          "name": "Vishal Sharma",
+          "role": "Sponsorship Head",
+          "fallback": "VS",
+          "image": "../owasp_team_files/vishal-sharma.jpg",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "upcoming-leads",
+      "kicker": "Upcoming Leads",
+      "title": "Future leadership and specialized contributors.",
+      "description": "Members preparing to step into core leadership roles and steering various chapter departments.",
+      "members": [
+        {
+          "name": "Saurav Sahu",
+          "role": "Upcoming Lead",
+          "fallback": "SS",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
           }
         },
         {
-          "name": "Pranjali Tiwari",
-          "role": "Promotion Team",
-          "fallback": "PT",
-          "image": "../owasp_team_files/pranjali-tiwari.jpg",
+          "name": "Sharsti Garg",
+          "role": "Upcoming Lead",
+          "fallback": "SG",
+          "image": "",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": ""
           }
         },
         {
-          "name": "Sanjita",
-          "role": "Promotion Team",
-          "fallback": "S",
-          "image": "../owasp_team_files/1733558505623",
+          "name": "Shubham Atram",
+          "role": "Upcoming Lead",
+          "fallback": "SA",
+          "image": "",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": ""
           }
         },
         {
-          "name": "Ashu",
-          "role": "Promotion Team",
-          "fallback": "A",
-          "image": "../owasp_team_files/ashu.jpg",
+          "name": "Aditi Khatri",
+          "role": "Upcoming Lead",
+          "fallback": "AK",
+          "image": "",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": ""
           }
         },
         {
-          "name": "Prabhat Singh Raj",
-          "role": "Sponsorship Team",
+          "name": "Amit Baghel",
+          "role": "Upcoming Lead",
+          "fallback": "AB",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Arjit Yadav",
+          "role": "Upcoming Lead",
+          "fallback": "AY",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Chirag Gurjar",
+          "role": "Upcoming Lead",
+          "fallback": "CG",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Dev Sharma",
+          "role": "Upcoming Lead",
+          "fallback": "DS",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Harsh Rathore",
+          "role": "Upcoming Lead",
+          "fallback": "HR",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Himanshi Dangi",
+          "role": "Upcoming Lead",
+          "fallback": "HD",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Kanishk Tiwari",
+          "role": "Upcoming Lead",
+          "fallback": "KT",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Manya Mehta",
+          "role": "Upcoming Lead",
+          "fallback": "MM",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Prarthana Sharma",
+          "role": "Upcoming Lead",
           "fallback": "PS",
-          "image": "../owasp_team_files/prabhat-singh-raj.jpg",
+          "image": "",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": ""
           }
         },
         {
-          "name": "Shivansh",
-          "role": "Sponsorship Team",
-          "fallback": "S",
-          "image": "../owasp_team_files/1753980923175",
+          "name": "Serine Ros Anto",
+          "role": "Upcoming Lead",
+          "fallback": "SR",
+          "image": "",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/gautampratap/"
+            "instagram": "",
+            "linkedin": ""
           }
         },
         {
-          "name": "Mudit Kalya",
-          "role": "Sponsorship Team",
-          "fallback": "MK",
-          "image": "../owasp_team_files/Mudit-Kalya.jpeg",
+          "name": "Shlok Gupta",
+          "role": "Upcoming Lead",
+          "fallback": "SG",
+          "image": "",
           "socials": {
-            "instagram": "https://www.instagram.com/_gautampratap/",
-            "linkedin": "https://www.linkedin.com/in/mudit-kalya-884479324?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Sumit Maurya",
+          "role": "Upcoming Lead",
+          "fallback": "SM",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Viha Sooden",
+          "role": "Upcoming Lead",
+          "fallback": "VS",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Nitin Kumar",
+          "role": "Upcoming Lead",
+          "fallback": "NK",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Yashika Gupta",
+          "role": "Upcoming Lead",
+          "fallback": "YG",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
+          }
+        },
+        {
+          "name": "Khemendra Singh Jatav",
+          "role": "Upcoming Lead",
+          "fallback": "KJ",
+          "image": "",
+          "socials": {
+            "instagram": "",
+            "linkedin": ""
           }
         }
       ]

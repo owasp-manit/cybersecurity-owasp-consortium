@@ -72,7 +72,7 @@ const initTeamPage = async () => {
 };
 
 const initSlideshow = () => {
-  const slideshow = document.getElementById("ctf-slideshow");
+  const slideshow = document.getElementById("team-slideshow");
   if (!slideshow) return;
 
   const slides = Array.from(slideshow.querySelectorAll(".team-slideshow__slide"));

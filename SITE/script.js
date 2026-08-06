@@ -255,28 +255,69 @@ const initFormHandler = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const btn = form.querySelector("button[type='submit']");
-    const btnSpan = btn.querySelector("span");
-    const originalText = btnSpan.textContent;
+    const name = document.getElementById("id_name")?.value || "";
+    const email = document.getElementById("id_email")?.value || "";
+    const message = document.getElementById("id_message")?.value || "";
 
-    btn.disabled = true;
-    btnSpan.textContent = "Sending...";
+    if (!name || !email || !message) {
+      formStatus.textContent = "⚠ Please fill in all fields.";
+      formStatus.className = "form-status error";
+      return;
+    }
+
+    const btn = form.querySelector("button[type='submit']");
+    const btnSpan = btn?.querySelector("span");
+    const originalText = btnSpan ? btnSpan.textContent : "Send Message";
+
+    if (btn) btn.disabled = true;
+    if (btnSpan) btnSpan.textContent = "Sending...";
     formStatus.textContent = "Connecting to community...";
     formStatus.className = "form-status sending";
 
-    setTimeout(() => {
-      formStatus.textContent = "✓ Welcome aboard! Message sent.";
-      formStatus.className = "form-status success";
-      btnSpan.textContent = "Message Sent ✓";
-      form.reset();
+    const payload = {
+      name: name,
+      email: email,
+      message: message,
+      _subject: `OWASP MANIT Contact Form: Message from ${name}`
+    };
 
-      setTimeout(() => {
-        btn.disabled = false;
-        btnSpan.textContent = originalText;
-        formStatus.textContent = "Ready to connect...";
-        formStatus.className = "form-status";
-      }, 4500);
-    }, 1600);
+    fetch("https://formsubmit.co/ajax/owaspmanit@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Server error");
+        return response.json();
+      })
+      .then(() => {
+        formStatus.textContent = "✓ Welcome aboard! Message sent.";
+        formStatus.className = "form-status success";
+        if (btnSpan) btnSpan.textContent = "Message Sent ✓";
+        form.reset();
+
+        setTimeout(() => {
+          if (btn) btn.disabled = false;
+          if (btnSpan) btnSpan.textContent = originalText;
+          formStatus.textContent = "Ready to connect...";
+          formStatus.className = "form-status";
+        }, 4500);
+      })
+      .catch(() => {
+        formStatus.textContent = "✗ Transmission failed. Try again.";
+        formStatus.className = "form-status error";
+        if (btnSpan) btnSpan.textContent = "Error ✗";
+
+        setTimeout(() => {
+          if (btn) btn.disabled = false;
+          if (btnSpan) btnSpan.textContent = originalText;
+          formStatus.textContent = "Ready to connect...";
+          formStatus.className = "form-status";
+        }, 3000);
+      });
   });
 };
 
