@@ -239,29 +239,9 @@
           }
         },
         {
-          "name": "Aditi Khatri",
-          "role": "Upcoming Lead",
-          "fallback": "AK",
-          "image": "",
-          "socials": {
-            "instagram": "",
-            "linkedin": ""
-          }
-        },
-        {
           "name": "Amit Baghel",
           "role": "Upcoming Lead",
           "fallback": "AB",
-          "image": "",
-          "socials": {
-            "instagram": "",
-            "linkedin": ""
-          }
-        },
-        {
-          "name": "Arjit Yadav",
-          "role": "Upcoming Lead",
-          "fallback": "AY",
           "image": "",
           "socials": {
             "instagram": "",
