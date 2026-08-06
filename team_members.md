@@ -4,6 +4,7 @@ This document lists all active members currently defined in [teams-data.json](fi
 
 ---
 
+
 ## 1. Core Team
 *Leadership, coordination, and chapter operations.*
 
