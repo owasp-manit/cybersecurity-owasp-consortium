@@ -1,0 +1,148 @@
+/* ===== RESPONSIVE FIXES ===== */
+
+/* ── Global Section ── */
+.section {
+  padding: var(--space-section) 0;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0; /* Reduce gap between components */
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 2.5rem 1rem;
+    gap: 1.5rem;
+  }
+}
+
+/* ── Hero Section ── */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding-top: 8rem;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .hero__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__heading {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  
+  .hero__desc {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .hero__ctas {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero__3d-container {
+    display: none !important; /* Hide 3D scene on mobile for cleaner look */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__heading {
+    font-size: clamp(2.5rem, 15vw, 3.5rem);
+  }
+  
+  .hero__live-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .hero__live-stat-sep {
+    display: none;
+  }
+  
+  .hero__live-stat {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: 45%;
+  }
+}
+
+/* ── Events Grid ── */
+@media (max-width: 1024px) {
+  .events__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .events__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .event-featured {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-section__grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .why-card {
+    padding: 1.25rem;
+  }
+  
+  .why-card__title {
+    font-size: 1.1rem;
+  }
+  
+  .why-card__desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+
+/* ── Collaborations ── */
+@media (max-width: 768px) {
+  .collabs__nodes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    inset: auto;
+    margin-top: 2rem;
+  }
+  .collab-node {
+    position: static;
+    transform: none !important;
+  }
+}

@@ -247,9 +247,9 @@ export class HeroScene {
         tilt: 10, // degrees from equator
         speed: 0.6, // full rotations per minute feel
         logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.png',
         ],
         lineColor: 0xffffff,
         lineOpacity: 0.25,
@@ -260,10 +260,10 @@ export class HeroScene {
         tilt: -15,
         speed: 0.4,
         logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-plain.png',
         ],
         lineColor: 0xdddddd,
         lineOpacity: 0.2,
@@ -274,11 +274,11 @@ export class HeroScene {
         tilt: 30,
         speed: 0.25,
         logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg', // aws wordmark is mostly SVG, fallback will apply if it fails
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.png',
         ],
         lineColor: 0xbbbbbb,
         lineOpacity: 0.15,
@@ -289,12 +289,12 @@ export class HeroScene {
         tilt: -20,
         speed: 0.15,
         logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.png',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.png',
         ],
         lineColor: 0xaaaaaa,
         lineOpacity: 0.12,
@@ -337,12 +337,21 @@ export class HeroScene {
       // Place logos evenly around the ring
       const planets = [];
       def.logos.forEach((logoUrl, j) => {
-        const tex = textureLoader.load(logoUrl);
+        // Create sprite material first to allow fallback modification
         const spriteMat = new THREE.SpriteMaterial({
-          map: tex,
           transparent: true,
           opacity: 0.95,
         });
+        
+        const tex = textureLoader.load(logoUrl, undefined, undefined, (err) => {
+          console.warn('Fallback: Failed to load texture:', logoUrl);
+          spriteMat.map = null;
+          spriteMat.color = new THREE.Color(0x00ff88);
+          spriteMat.needsUpdate = true;
+        });
+        
+        spriteMat.map = tex;
+        
         const sprite = new THREE.Sprite(spriteMat);
         sprite.scale.set(def.planetSize, def.planetSize, 1);
 

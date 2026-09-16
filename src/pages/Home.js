@@ -10,16 +10,9 @@ export function renderHome() {
     <!-- HERO -->
     <section class="hero section" id="hero">
       <div class="hero__content">
-        <div class="hero__identity">
-          <div class="hero__identity-badge">
-            <span class="hero__identity-dot"></span>
-            <span class="hero__identity-label">OWASP CONSORTIUM&nbsp;&nbsp;/&nbsp;&nbsp;MANIT BHOPAL</span>
-          </div>
-        </div>
-
-        <h1 class="hero__heading">
-          <span>BUILD.</span>
-          <span>BREAK.</span>
+        <h1 class="hero__heading reveal-up">
+          BUILD.<br />
+          BREAK.<br />
           <span class="accent">SECURE.</span>
         </h1>
         
@@ -57,10 +50,6 @@ export function renderHome() {
         <div class="hero__ctas">
           <a href="#/events" class="btn btn--primary">Explore Events <span class="btn-arrow">→</span></a>
           <a href="#/contact" class="btn">Join the Community</a>
-        </div>
-        
-        <div class="hero__tagline">
-          CYBERSECURITY <span class="dot">•</span> RESEARCH <span class="dot">•</span> CTF <span class="dot">•</span> COMMUNITY
         </div>
       </div>
 
@@ -132,9 +121,9 @@ export function renderHome() {
             <span class="os-window__title">purpose.sh</span>
           </div>
           <div>
-            <div class="why-section__header" style="padding: 2rem 2rem 0;">
+            <div class="why-section__header" style="padding: 2rem 2rem 0; margin-bottom: 0;">
               <span class="section-overline reveal-up">OUR PURPOSE</span>
-              <h2 class="section-title reveal-up">WHY WE <span>EXIST</span></h2>
+              <h2 class="section-title reveal-up" style="margin-bottom: 1rem;">WHY WE <span>EXIST</span></h2>
             </div>
             <div class="why-section__grid">
               <div class="why-card reveal-up" data-process="pid:1001">
@@ -306,7 +295,7 @@ export function renderFooter() {
         <div class="footer__inner">
           <div class="footer__brand">
             <div class="footer__logo-row">
-              <img class="footer__logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/OWASP_logo.svg/512px-OWASP_logo.svg.png" alt="OWASP Logo" style="filter: brightness(0) invert(1);" />
+              <img class="footer__logo" src="/src/assets/logo.png" alt="OWASP Logo" style="filter: brightness(0) invert(1);" />
               <div>
                 <span class="footer__brand-name">OWASP CONSORTIUM</span>
                 <span class="footer__brand-sub">MANIT BHOPAL</span>

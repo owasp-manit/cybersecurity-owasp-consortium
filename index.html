@@ -54,13 +54,15 @@
   <!-- Navbar -->
   <nav id="navbar" class="navbar">
     <div class="navbar__inner">
-      <a href="#/" class="navbar__brand">
-        <img src="/src/assets/logo.jpg" alt="OWASP Logo" class="navbar__logo-img" />
-        <div class="navbar__brand-text">
-          <span class="navbar__brand-name">OWASP CONSORTIUM</span>
-          <span class="navbar__brand-sub">MANIT BHOPAL</span>
-        </div>
-      </a>
+      <div class="navbar__brand">
+        <a href="#/" class="navbar__logo-link">
+          <img src="/src/assets/logo.png" alt="OWASP Logo" class="navbar__logo-img" />
+          <div class="navbar__logo-text">
+            <span class="title">OWASP CONSORTIUM</span>
+            <span class="subtitle">MANIT BHOPAL</span>
+          </div>
+        </a>
+      </div>
       <div class="navbar__links">
         <a href="#/" class="navbar__link" data-nav="home">Home</a>
         <a href="#/about" class="navbar__link" data-nav="about">About Us</a>
@@ -81,14 +83,30 @@
 
   <!-- Mobile Nav Overlay -->
   <div id="mobile-nav" class="mobile-nav">
+    <button class="mobile-nav__close" aria-label="Close menu">&times;</button>
     <div class="mobile-nav__inner">
-      <a href="#/" class="mobile-nav__link" data-nav="home">Home</a>
-      <a href="#/about" class="mobile-nav__link" data-nav="about">About Us</a>
-      <a href="#/events" class="mobile-nav__link" data-nav="events">Events</a>
-      <a href="#/gallery" class="mobile-nav__link" data-nav="gallery">Gallery</a>
-      <a href="#/sponsors" class="mobile-nav__link" data-nav="sponsors">Sponsors</a>
-      <a href="#/team" class="mobile-nav__link" data-nav="team">Team</a>
-      <a href="#/contact" class="mobile-nav__link" data-nav="contact">Contact Us</a>
+      <a href="#/" class="mobile-nav__link" data-nav="home"><span class="mobile-nav__text">Home</span></a>
+      <a href="#/about" class="mobile-nav__link" data-nav="about"><span class="mobile-nav__text">About Us</span></a>
+      <a href="#/events" class="mobile-nav__link" data-nav="events"><span class="mobile-nav__text">Events</span></a>
+      <a href="#/gallery" class="mobile-nav__link" data-nav="gallery"><span class="mobile-nav__text">Gallery</span></a>
+      <a href="#/sponsors" class="mobile-nav__link" data-nav="sponsors"><span class="mobile-nav__text">Sponsors</span></a>
+      <a href="#/team" class="mobile-nav__link" data-nav="team"><span class="mobile-nav__text">Team</span></a>
+      <a href="#/contact" class="mobile-nav__link" data-nav="contact"><span class="mobile-nav__text">Contact Us</span></a>
+    </div>
+
+    <div class="mobile-nav__socials">
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+      </a>
     </div>
   </div>
 

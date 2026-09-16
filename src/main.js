@@ -105,6 +105,8 @@ function initNavbar() {
   const navbar = document.getElementById('navbar');
   const hamburger = document.querySelector('.navbar__hamburger');
   const mobileNav = document.getElementById('mobile-nav');
+  const mobileNavClose = document.querySelector('.mobile-nav__close');
+  const mobileLinks = document.querySelectorAll('.mobile-nav__link');
 
   // Scroll effect
   window.addEventListener('scroll', () => {
@@ -126,12 +128,16 @@ function initNavbar() {
       }
     });
 
-    // Close on link click
+    // Close on link click or close button
+    const closeNav = () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+    };
+    
+    mobileNavClose?.addEventListener('click', closeNav);
+    
     mobileNav.querySelectorAll('.mobile-nav__link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-        hamburger.classList.remove('open');
-      });
+      link.addEventListener('click', closeNav);
     });
   }
 }

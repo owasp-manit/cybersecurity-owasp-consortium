@@ -95,20 +95,20 @@
 }
 
 .footer__social-icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid var(--color-border);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-dim);
+  color: #ffffff;
   transition: all var(--duration-fast) var(--ease-out);
 }
 
 .footer__social-icon svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 
 .footer__social-icon:hover {
@@ -134,16 +134,40 @@
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.5rem 1rem;
+    margin-top: 2rem;
+  }
+  
   .footer__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer__inner > div:nth-child(2),
+  .footer__inner > div:nth-child(3) {
+    display: none;
+  }
+
+  .footer__logo-row {
+    justify-content: center;
+  }
+
+  .footer__col-title {
+    display: none; /* Hide 'Follow Us' title */
+  }
+  
+  .footer__brand {
+    margin-bottom: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .footer__inner {
-    grid-template-columns: 1fr;
-  }
+  /* Layout is already flex column from 768px */
 
   .footer__bottom {
     flex-direction: column;
