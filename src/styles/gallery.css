@@ -1,0 +1,248 @@
+/* ===== GALLERY SPIRAL CUTOUTS ===== */
+
+.gallery-page {
+  padding-top: 7rem;
+  padding-bottom: var(--space-3xl);
+  overflow: hidden; /* Prevent horizontal scroll from alternating elements */
+}
+
+.gallery-page__hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-3xl);
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+}
+
+.gallery-page__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.gallery-page__heading span {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-text-dim);
+}
+
+.gallery-page__hero-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.gallery-page__count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-text); /* Used to be blue, now white */
+  letter-spacing: 0.1em;
+}
+
+/* ── Spiral Container ── */
+.gallery-spiral-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  padding: var(--space-2xl) 0;
+}
+
+/* Central Weaving Line */
+.gallery-spiral-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-text) 0,
+    var(--color-text) 4px,
+    transparent 4px,
+    transparent 12px
+  );
+  transform: translateX(-50%);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* Event Cutout Structure */
+.gallery-event-cutout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+.gallery-event-cutout--left {
+  align-items: flex-start;
+}
+
+.gallery-event-cutout--right {
+  align-items: flex-end;
+}
+
+/* Meta Section */
+.gallery-cutout-meta {
+  position: relative;
+  max-width: 50%;
+  background: var(--color-bg); /* Opaque background to hide spiral line underneath */
+  padding: var(--space-lg) 0;
+}
+
+.gallery-event-cutout--left .gallery-cutout-meta {
+  padding-right: var(--space-2xl);
+  text-align: left;
+}
+
+.gallery-event-cutout--right .gallery-cutout-meta {
+  padding-left: var(--space-2xl);
+  text-align: right;
+}
+
+.gallery-cutout-date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-text); /* Was blue, now white */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-cutout-title {
+  font-size: var(--fs-h3);
+  margin-bottom: 0.5rem;
+}
+
+.gallery-cutout-desc {
+  color: var(--color-text-secondary);
+}
+
+/* The Node on the Spiral Line */
+.gallery-spiral-node {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.gallery-event-cutout--left .gallery-spiral-node {
+  right: calc(-50vw + 50% - 6px); /* Align with the center line */
+}
+.gallery-event-cutout--right .gallery-spiral-node {
+  left: calc(-50vw + 50% - 6px); /* Align with the center line */
+}
+
+.gallery-event-cutout:hover .gallery-spiral-node {
+  background: var(--color-text);
+}
+
+
+/* ── Photo Grid inside Cutout ── */
+.gallery-cutout-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.gallery-event-cutout--right .gallery-cutout-photos {
+  justify-content: flex-end;
+}
+
+/* ── Frames ── */
+.gallery-frame {
+  position: relative;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  background: #000;
+  border-radius: 2px;
+  /* Width handling based on size */
+}
+
+.gallery-frame--wide {
+  width: calc(60% - var(--space-md));
+  aspect-ratio: 16/9;
+}
+
+.gallery-frame--tall {
+  width: calc(40% - var(--space-md));
+  aspect-ratio: 4/5;
+}
+
+.gallery-frame__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter var(--duration-normal) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+}
+
+.gallery-frame:hover .gallery-frame__img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.03);
+}
+
+/* Corners (from previous design) */
+.gallery-frame__corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-text);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s var(--ease-out);
+  z-index: 5;
+}
+
+.gallery-frame:hover .gallery-frame__corner {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.gallery-frame__corner--tl { top: 12px; left: 12px; border-right: none; border-bottom: none; transform: translate(-10px, -10px); }
+.gallery-frame__corner--tr { top: 12px; right: 12px; border-left: none; border-bottom: none; transform: translate(10px, -10px); }
+.gallery-frame__corner--bl { bottom: 12px; left: 12px; border-right: none; border-top: none; transform: translate(-10px, 10px); }
+.gallery-frame__corner--br { bottom: 12px; right: 12px; border-left: none; border-top: none; transform: translate(10px, 10px); }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .gallery-spiral-line {
+    left: 20px;
+    transform: none;
+  }
+  
+  .gallery-event-cutout--left, .gallery-event-cutout--right {
+    align-items: flex-start;
+  }
+  
+  .gallery-cutout-meta {
+    max-width: 100%;
+    padding-left: 50px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+  
+  .gallery-event-cutout--left .gallery-spiral-node,
+  .gallery-event-cutout--right .gallery-spiral-node {
+    left: 14px; /* Align with left spiral line */
+    right: auto;
+  }
+  
+  .gallery-frame--wide, .gallery-frame--tall {
+    width: 100%;
+    aspect-ratio: auto;
+    height: 300px;
+  }
+}

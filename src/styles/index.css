@@ -1,0 +1,22 @@
+/* ===== MASTER STYLESHEET ===== */
+
+@import './variables.css';
+@import './reset.css';
+@import './global.css';
+@import './preloader.css';
+@import './navbar.css';
+@import './socialbar.css';
+@import './hero.css';
+@import './about.css';
+@import './events.css';
+@import './collaborations.css';
+@import './footer.css';
+@import './modal.css';
+@import './pages.css';
+@import './team-page.css';
+@import './ctf-page.css';
+@import './contact-page.css';
+@import './pages-new.css';
+@import './gallery.css';
+@import './interactions.css';
+@import './about-new.css';

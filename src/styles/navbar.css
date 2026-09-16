@@ -1,0 +1,198 @@
+/* ===== NAVBAR ===== */
+
+.navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem);
+  max-width: var(--container-wide);
+  z-index: var(--z-navbar);
+  padding: 0.75rem 1.5rem;
+  background: rgba(5, 6, 6, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.navbar--scrolled {
+  background: rgba(5, 6, 6, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 0.6rem 1.5rem;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.navbar__logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.navbar__brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__brand-name {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.navbar__brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.15em;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+.navbar__link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-out);
+  position: relative;
+  white-space: nowrap;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 20px;
+  height: 1px;
+  background: var(--color-blue);
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.navbar__link:hover,
+.navbar__link.active {
+  color: var(--color-text-primary);
+}
+
+.navbar__link.active::after {
+  transform: translateX(-50%) scaleX(1);
+  box-shadow: 0 0 8px var(--color-blue-glow);
+}
+
+.navbar__divider {
+  width: 1px;
+  height: 16px;
+  background: var(--color-border);
+  margin: 0 0.5rem;
+}
+
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  margin-left: auto;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-text-primary);
+  transition: all var(--duration-normal) var(--ease-out);
+  transform-origin: center;
+}
+
+.navbar__hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.navbar__hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+}
+
+/* ── Mobile Nav Overlay ── */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-mobile-nav);
+  background: rgba(5, 6, 6, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.mobile-nav.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-nav__link {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-secondary);
+  transition: color var(--duration-fast) var(--ease-out);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.mobile-nav__link:hover,
+.mobile-nav__link.active {
+  color: var(--color-text-primary);
+}

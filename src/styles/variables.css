@@ -1,0 +1,91 @@
+/* ===== OWASP CONSORTIUM — DESIGN TOKENS (B/W OS THEME) ===== */
+
+:root {
+  /* Colors - Monochrome Base */
+  --color-black: #050606;
+  --color-black-light: #121314;
+  --color-white: #ffffff;
+  --color-white-dim: rgba(255, 255, 255, 0.7);
+  --color-white-dimmer: rgba(255, 255, 255, 0.4);
+
+  /* Accent - Blue only on hover/active */
+  --color-blue: #00b4d8;
+  --color-blue-glow: rgba(0, 180, 216, 0.4);
+
+  /* Semantic */
+  --color-bg: var(--color-black);
+  --color-surface: var(--color-black-light);
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: var(--color-white-dim);
+  --color-text-dim: var(--color-white-dimmer);
+
+  /* OS UI borders */
+  --color-border: rgba(255, 255, 255, 0.15);
+  --color-border-hover: var(--color-blue);
+
+  /* Typography */
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --fs-hero: clamp(3.5rem, 8vw, 7rem);
+  --fs-h1: clamp(2.5rem, 5vw, 4rem);
+  --fs-h2: clamp(1.8rem, 3.5vw, 2.8rem);
+  --fs-h3: clamp(1.2rem, 2vw, 1.6rem);
+  --fs-body: clamp(0.9rem, 1.2vw, 1.05rem);
+  --fs-small: clamp(0.75rem, 1vw, 0.85rem);
+  --fs-micro: clamp(0.65rem, 0.8vw, 0.75rem);
+
+  --lh-tight: 1.1;
+  --lh-heading: 1.2;
+  --lh-body: 1.65;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* ── Spacing ── */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 10rem;
+  --space-section: clamp(5rem, 10vh, 8rem);
+
+  /* ── Layout ── */
+  --container-max: 1200px;
+  --container-narrow: 900px;
+  --container-wide: 1400px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+
+  /* ── Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --duration-fast: 200ms;
+  --duration-normal: 350ms;
+  --duration-slow: 600ms;
+
+  /* ── Z-Index ── */
+  --z-canvas: -1;
+  --z-grain: 0;
+  --z-content: 1;
+  --z-social: 50;
+  --z-navbar: 100;
+  --z-mobile-nav: 150;
+  --z-modal: 200;
+  --z-cursor: 300;
+  --z-preloader: 1000;
+}

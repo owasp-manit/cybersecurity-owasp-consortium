@@ -1,0 +1,82 @@
+/* ===== NEW ABOUT PAGE STYLES ===== */
+
+.about-vm-block {
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-vm-block__tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-text-dim);
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.about-vm-block__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+  max-width: 800px;
+}
+
+.about-vm-block__desc {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Staggered What We Do */
+.about-whatwedo-stagger {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
+}
+
+.about-do-stagger-card {
+  padding: var(--space-xl);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.about-do-stagger-card__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-md);
+}
+
+.about-do-stagger-card__icon {
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+.about-do-stagger-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  margin-bottom: var(--space-sm);
+}
+
+.about-do-stagger-card__desc {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .about-whatwedo-stagger {
+    grid-template-columns: 1fr;
+  }
+  .about-do-stagger-card {
+    margin-top: 0 !important;
+  }
+}

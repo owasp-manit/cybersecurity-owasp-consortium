@@ -1,621 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OWASP MANIT | Cyber Defense Consortium</title>
-  <meta name="description" content="Welcome to the OWASP Student Chapter at MANIT Bhopal. Explore cybersecurity workshops, CTF competitions, and security tools built by student developers.">
-  <meta name="keywords" content="OWASP MANIT, OWASP Bhopal, cybersecurity club MANIT, Capture The Flag MANIT, ethical hacking Bhopal">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://owaspmanit.in/index.html">
-  <meta property="og:title" content="OWASP MANIT | Cyber Defense Consortium">
-  <meta property="og:description" content="Welcome to the OWASP Student Chapter at MANIT Bhopal. Explore cybersecurity workshops, CTF competitions, and security tools built by student developers.">
-  <meta property="og:image" content="https://owaspmanit.in/logo_owasp.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://owaspmanit.in/index.html">
-  <meta property="twitter:title" content="OWASP MANIT | Cyber Defense Consortium">
-  <meta property="twitter:description" content="Welcome to the OWASP Student Chapter at MANIT Bhopal. Explore cybersecurity workshops, CTF competitions, and security tools built by student developers.">
-  <meta property="twitter:image" content="https://owaspmanit.in/logo_owasp.png">
-
-  <link rel="icon" type="image/png" href="logo_owasp.png">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@300;400;500&display=swap');
-
-    :root {
-      --cyan: #00e5ff;
-      --cyan-dim: rgba(0, 229, 255, 0.45);
-      --cyan-glow: rgba(0, 229, 255, 0.15);
-      --green: #39ff88;
-      --green-dim: rgba(57, 255, 136, 0.55);
-      --purple: #a855f7;
-      --purple-dim: rgba(168, 85, 247, 0.45);
-      --purple-glow: rgba(168, 85, 247, 0.15);
-      --bg: #050a10;
-      --text: #ddeeff;
-      --mono: 'Share Tech Mono', 'Fira Code', 'Courier New', monospace;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-      background: var(--bg);
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    body {
-      background-color: var(--bg);
-      transition: opacity 0.5s ease;
-      color: var(--text);
-    }
-
-    body.leaving {
-      opacity: 0;
-    }
-
-    /* ── Ambient background layers ── */
-    .ambient {
-      position: fixed;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .ambient__orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0;
-      animation: orbFloat 20s ease-in-out infinite;
-    }
-
-    .ambient__orb--a {
-      width: 640px;
-      height: 640px;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.18), transparent 70%);
-      top: -15%;
-      left: -10%;
-      animation-delay: 0s;
-    }
-
-    .ambient__orb--b {
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(57, 255, 136, 0.12), transparent 70%);
-      top: 25%;
-      right: -8%;
-      animation-delay: -7s;
-    }
-
-    .ambient__orb--c {
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.14), transparent 70%);
-      bottom: 15%;
-      left: 30%;
-      animation-delay: -13s;
-    }
-
-    @keyframes orbFloat {
-      0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-      }
-
-      33% {
-        transform: translate(40px, -30px) scale(1.08);
-      }
-
-      66% {
-        transform: translate(-20px, 40px) scale(0.95);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-      }
-    }
-
-    .ambient__grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
-    }
-
-    .ambient__noise {
-      position: absolute;
-      inset: 0;
-      opacity: 0.02;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px;
-    }
-
-    /* ── CRT Scanline Overlay ── */
-    .scanlines {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 300;
-      background: repeating-linear-gradient(0deg,
-          transparent,
-          transparent 2px,
-          rgba(0, 0, 0, 0.04) 2px,
-          rgba(0, 0, 0, 0.04) 4px);
-    }
-
-    /* ── Vignette ── */
-    .vignette {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 299;
-      background: radial-gradient(ellipse at center, transparent 60%, rgba(5, 10, 16, 0.5) 100%);
-    }
-
-    /* ── HUD Overlay ── */
-    .hud-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-      font-family: var(--mono);
-    }
-
-    /* ── ASCII Art Block ── */
-    .ascii-art {
-      color: var(--cyan);
-      font-size: clamp(5px, 1.05vw, 14px);
-      line-height: 1.15;
-      white-space: pre;
-      text-align: center;
-      text-shadow:
-        0 0 8px var(--cyan-dim),
-        0 0 30px var(--cyan-glow);
-      animation: asciiPulse 4s ease-in-out infinite;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      user-select: none;
-      will-change: opacity, transform;
-    }
-
-    .ascii-art.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── Subtitle Under Logo ── */
-    .ascii-subtitle {
-      margin-top: 12px;
-      color: var(--purple);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.45em;
-      text-transform: uppercase;
-      text-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
-      opacity: 0;
-      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
-    }
-
-    /* ── Logo Icon ── */
-    .boot-logo {
-      width: 72px;
-      height: 72px;
-      margin-bottom: 12px;
-      object-fit: contain;
-      opacity: 0;
-      transform: scale(0.9);
-      filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.45));
-      transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-      animation: logoFloat 4s ease-in-out infinite alternate;
-    }
-
-    .boot-logo.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    @keyframes logoFloat {
-      0% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.45)); }
-      100% { transform: scale(1.04) translateY(-4px); filter: drop-shadow(0 0 24px rgba(0, 229, 255, 0.7)); }
-    }
-
-    .ascii-subtitle.visible {
-      opacity: 0.85;
-    }
-
-    /* ── Terminal Console ── */
-    .terminal {
-      position: fixed;
-      bottom: 48px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(600px, 90vw);
-      z-index: 210;
-      font-family: var(--mono);
-      pointer-events: none;
-    }
-
-    .terminal-lines {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .term-line {
-      font-size: 11px;
-      color: var(--text);
-      opacity: 0;
-      transform: translateY(6px) translateZ(0);
-      transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: opacity, transform;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .term-line.visible {
-      opacity: 1;
-      transform: translateY(0) translateZ(0);
-    }
-
-    .term-line .prompt {
-      color: var(--green);
-    }
-
-    .term-line .path {
-      color: var(--cyan);
-    }
-
-    .term-line .ok {
-      color: var(--green);
-    }
-
-    .term-line .warn {
-      color: var(--purple);
-    }
-
-    .term-line .fail {
-      color: var(--purple);
-    }
-
-    .term-line .dim {
-      color: rgba(221, 238, 255, 0.35);
-    }
-
-    /* ── Progress Bar ── */
-    .progress-wrap {
-      position: fixed;
-      bottom: 26px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(400px, 70vw);
-      z-index: 220;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .progress-wrap.visible {
-      opacity: 1;
-    }
-
-    .progress-bar {
-      height: 2px;
-      background: rgba(0, 229, 255, 0.08);
-      border-radius: 1px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--cyan), var(--green));
-      box-shadow: 0 0 10px var(--cyan-glow);
-      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .progress-label {
-      margin-top: 6px;
-      text-align: center;
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      color: rgba(221, 238, 255, 0.35);
-      text-transform: uppercase;
-    }
-
-    /* ── Corner HUD Elements ── */
-    .corner-hud {
-      position: fixed;
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      color: rgba(221, 238, 255, 0.25);
-      z-index: 230;
-      pointer-events: none;
-    }
-
-    .corner-tl {
-      top: 16px;
-      left: 20px;
-    }
-
-    .corner-tr {
-      top: 16px;
-      right: 20px;
-      text-align: right;
-    }
-
-    .corner-bl {
-      bottom: 10px;
-      left: 20px;
-    }
-
-    .corner-br {
-      bottom: 10px;
-      right: 20px;
-      text-align: right;
-    }
-
-    /* ── Decorative Frame ── */
-    .frame-border {
-      position: fixed;
-      z-index: 240;
-      pointer-events: none;
-    }
-
-    .frame-top,
-    .frame-bottom {
-      left: 20px;
-      right: 20px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--cyan-dim), transparent);
-    }
-
-    .frame-top {
-      top: 36px;
-    }
-
-    .frame-bottom {
-      bottom: 36px;
-    }
-
-    .frame-left,
-    .frame-right {
-      top: 36px;
-      bottom: 36px;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, var(--cyan-dim), transparent);
-    }
-
-    .frame-left {
-      left: 20px;
-    }
-
-    .frame-right {
-      right: 20px;
-    }
-
-    /* ── Keyframes ── */
-    @keyframes asciiPulse {
-
-      0%,
-      100% {
-        text-shadow: 0 0 8px var(--cyan-dim), 0 0 30px var(--cyan-glow);
-      }
-
-      50% {
-        text-shadow: 0 0 16px var(--cyan-dim), 0 0 50px var(--cyan-glow), 0 0 80px rgba(0, 229, 255, 0.08);
-      }
-    }
-
-    @keyframes blink {
-
-      0%,
-      49% {
-        opacity: 1;
-      }
-
-      50%,
-      100% {
-        opacity: 0;
-      }
-    }
-
-    .cursor-blink::after {
-      content: '█';
-      animation: blink 0.7s step-end infinite;
-      color: var(--green);
-    }
-
-    /* ── NODE CANVAS ── */
-    #node-canvas {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.8;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OWASP Consortium — MANIT Bhopal</title>
+  <meta name="description" content="OWASP Consortium at MANIT Bhopal — Building cybersecurity skills, solving real problems, and creating a safer digital future." />
+  <meta name="keywords" content="OWASP, MANIT Bhopal, cybersecurity, CTF, security, consortium" />
+  <meta name="theme-color" content="#050606" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <h1 class="sr-only">OWASP MANIT Student Chapter</h1>
-  <!-- Canvas for node network placed immediately after <body> -->
-  <canvas id="node-canvas"></canvas>
+  <!-- Subtle Technical Grid Background -->
+  <div class="tech-grid-bg"></div>
+  <div class="glass-bg-text">OWASP</div>
 
-  <!-- Ambient background layers -->
-  <div class="ambient" aria-hidden="true">
-    <div class="ambient__orb ambient__orb--a"></div>
-    <div class="ambient__orb ambient__orb--b"></div>
-    <div class="ambient__orb ambient__orb--c"></div>
-    <div class="ambient__grid"></div>
-    <div class="ambient__noise"></div>
-  </div>
-
-  <!-- CRT Effects -->
-  <div class="scanlines"></div>
-  <div class="vignette"></div>
-
-  <!-- Decorative Frame -->
-  <div class="frame-border frame-top"></div>
-  <div class="frame-border frame-bottom"></div>
-  <div class="frame-border frame-left"></div>
-  <div class="frame-border frame-right"></div>
-
-  <!-- Corner HUD -->
-  <div class="corner-hud corner-tl" id="hud-tl">SYS://OWASP.BOOT</div>
-  <div class="corner-hud corner-tr" id="hud-tr">v3.14.03</div>
-  <div class="corner-hud corner-bl" id="hud-bl"></div>
-  <div class="corner-hud corner-br" id="hud-br">SEC_LEVEL: ████</div>
-
-  <!-- Main HUD Overlay -->
-  <div class="hud-overlay">
-    <img src="logo_owasp.png" alt="OWASP Icon" class="boot-logo" id="boot-logo" onerror="this.style.display='none';">
-    <pre class="ascii-art" id="ascii-logo"></pre>
-    <div class="ascii-subtitle" id="ascii-sub">Web Application Security // sudo_kill</div>
-  </div>
-
-  <!-- Terminal Console -->
-  <div class="terminal" id="terminal">
-    <div class="terminal-lines" id="term-lines"></div>
-  </div>
-
-  <!-- Progress Bar -->
-  <div class="progress-wrap" id="progress-wrap">
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill"></div>
+  <!-- Minimal B/W Preloader -->
+  <div id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__glitch-text" data-text="OWASP">OWASP</div>
+      <div class="preloader__status">
+        <span class="preloader__status-text">INITIALIZING SYSTEM</span>
+        <div class="preloader__bar">
+          <div class="preloader__bar-fill"></div>
+        </div>
+      </div>
     </div>
-    <div class="progress-label" id="progress-label">Initializing ∙ 0%</div>
   </div>
 
-  <script>
-    /* ═══════════════════════════════════════════════
-       ASCII ART + TERMINAL BOOT SEQUENCE
-    ═══════════════════════════════════════════════ */
+  <!-- Custom Cursor removed based on feedback -->
 
-    const ASCII_LOGO = `
- ▒█████   █     █░ ▄▄▄        ██████  ██▓███  
-▒██▒  ██▒▓█░ █ ░█░▒████▄    ▒██    ▒ ▓██░  ██▒
-▒██░  ██▒▒█░ █ ░█ ▒██  ▀█▄  ░ ▓██▄   ▓██░ ██▓▒
-▒██   ██░░█░ █ ░█ ░██▄▄▄▄██   ▒   ██▒▒██▄█▓▒ ▒
-░ ████▓▒░░░██▒██▓  ▓█   ▓██▒▒██████▒▒▒██▒ ░  ░
-░ ▒░▒░▒░ ░ ▓░▒ ▒   ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░▓██░   ░
-  ░ ▒ ▒░   ▒ ░ ░    ▒   ▒▒ ░░ ░▒  ░ ░░ ▒░   ░
-░ ░ ░ ▒    ░   ░    ░   ▒   ░  ░  ░  ░ ░    ░ 
-    ░ ░      ░          ░  ░      ░      ░   ░  
-`.trim();
+  <!-- Social Bar -->
+  <div id="social-bar" class="social-bar">
+    <div class="social-bar__line"></div>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="social-bar__link" data-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-bar__link" data-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="https://github.com" target="_blank" rel="noopener" class="social-bar__link" data-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+    <a href="https://youtube.com" target="_blank" rel="noopener" class="social-bar__link" data-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <div class="social-bar__line"></div>
+  </div>
 
-    const BOOT_LINES = [
-      { text: '<span class="prompt">root@owasp</span>:<span class="path">~/sys</span>$ ./boot --secure --verbose', delay: 200 },
-      { text: '<span class="dim">[    0.001]</span> Kernel security modules loaded', delay: 300 },
-      { text: '<span class="dim">[    0.014]</span> Mounting encrypted filesystem... <span class="ok">[OK]</span>', delay: 250 },
-      { text: '<span class="dim">[    0.031]</span> TLS 1.3 handshake ∙∙∙∙∙∙∙∙∙∙∙∙∙∙ <span class="ok">VERIFIED</span>', delay: 280 },
-      { text: '<span class="dim">[    0.048]</span> Loading threat intelligence db... <span class="ok">[OK]</span>', delay: 200 },
-      { text: '<span class="dim">[    0.062]</span> WAF rules injected ∙∙∙∙∙∙∙∙∙∙∙∙∙ <span class="warn">2,847 rules</span>', delay: 260 },
-      { text: '<span class="dim">[    0.079]</span> Vulnerability scanner ready ∙∙∙∙∙ <span class="ok">[ARMED]</span>', delay: 220 },
-      { text: '<span class="dim">[    0.093]</span> Initializing neural interface... <span class="ok">[READY]</span>', delay: 300 },
-      { text: '<span class="prompt">root@owasp</span>:<span class="path">~/sys</span>$ <span class="cursor-blink"></span>', delay: 400 },
-    ];
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar__inner">
+      <a href="#/" class="navbar__brand">
+        <img src="/src/assets/logo.jpg" alt="OWASP Logo" class="navbar__logo-img" />
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">OWASP CONSORTIUM</span>
+          <span class="navbar__brand-sub">MANIT BHOPAL</span>
+        </div>
+      </a>
+      <div class="navbar__links">
+        <a href="#/" class="navbar__link" data-nav="home">Home</a>
+        <a href="#/about" class="navbar__link" data-nav="about">About Us</a>
+        <a href="#/events" class="navbar__link" data-nav="events">Events</a>
+        <a href="#/gallery" class="navbar__link" data-nav="gallery">Gallery</a>
+        <a href="#/sponsors" class="navbar__link" data-nav="sponsors">Sponsors</a>
+        <span class="navbar__divider"></span>
+        <a href="#/team" class="navbar__link" data-nav="team">Team</a>
+        <a href="#/contact" class="navbar__link" data-nav="contact">Contact Us</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
 
-    // ── Boot sequence controller ──
-    const asciiEl = document.getElementById('ascii-logo');
-    const asciiSub = document.getElementById('ascii-sub');
-    const bootLogo = document.getElementById('boot-logo');
-    const termLines = document.getElementById('term-lines');
-    const progressWrap = document.getElementById('progress-wrap');
-    const progressFill = document.getElementById('progress-fill');
-    const progressLabel = document.getElementById('progress-label');
-    const hudBL = document.getElementById('hud-bl');
+  <!-- Mobile Nav Overlay -->
+  <div id="mobile-nav" class="mobile-nav">
+    <div class="mobile-nav__inner">
+      <a href="#/" class="mobile-nav__link" data-nav="home">Home</a>
+      <a href="#/about" class="mobile-nav__link" data-nav="about">About Us</a>
+      <a href="#/events" class="mobile-nav__link" data-nav="events">Events</a>
+      <a href="#/gallery" class="mobile-nav__link" data-nav="gallery">Gallery</a>
+      <a href="#/sponsors" class="mobile-nav__link" data-nav="sponsors">Sponsors</a>
+      <a href="#/team" class="mobile-nav__link" data-nav="team">Team</a>
+      <a href="#/contact" class="mobile-nav__link" data-nav="contact">Contact Us</a>
+    </div>
+  </div>
 
-    let bootStart = performance.now();
+  <!-- Page Container -->
+  <main id="page-container"></main>
 
-    // Reveal ASCII art & Logo
-    setTimeout(() => {
-      if (bootLogo) bootLogo.classList.add('visible');
-      asciiEl.textContent = ASCII_LOGO;
-      asciiEl.classList.add('visible');
-    }, 150);
+  <!-- Event Modal -->
+  <div id="event-modal" class="event-modal">
+    <div class="event-modal__backdrop"></div>
+    <div class="event-modal__content"></div>
+  </div>
 
-    setTimeout(() => asciiSub.classList.add('visible'), 600);
-    setTimeout(() => progressWrap.classList.add('visible'), 500);
-
-    // Type boot lines
-    let lineDelay = 700;
-    BOOT_LINES.forEach((entry, i) => {
-      setTimeout(() => {
-        const div = document.createElement('div');
-        div.className = 'term-line';
-        div.innerHTML = entry.text;
-        termLines.appendChild(div);
-
-        // Remove cursor from previous line
-        const prev = termLines.querySelectorAll('.cursor-blink');
-        if (prev.length > 1) prev[0].classList.remove('cursor-blink');
-
-        requestAnimationFrame(() => div.classList.add('visible'));
-
-        // Update progress
-        const pct = Math.min(100, Math.round(((i + 1) / BOOT_LINES.length) * 100));
-        progressFill.style.width = pct + '%';
-        progressLabel.textContent = `Initializing ∙ ${pct}%`;
-      }, lineDelay);
-      lineDelay += entry.delay;
-    });
-
-    // Update bottom-left HUD with uptime
-    setInterval(() => {
-      const up = ((performance.now() - bootStart) / 1000).toFixed(1);
-      hudBL.textContent = `UPTIME: ${up}s`;
-    }, 100);
-
-    // Fade out and redirect
-    setTimeout(() => {
-      document.body.classList.add('leaving');
-    }, 3600);
-
-    setTimeout(() => {
-      window.location.replace('SITE/home.html');
-    }, 4300);
-  </script>
-  <script src="./SITE/script.js"></script>
+  <!-- Module Script -->
+  <script type="module" src="/src/main.js"></script>
 </body>
-
 </html>

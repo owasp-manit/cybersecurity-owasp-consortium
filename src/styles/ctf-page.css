@@ -1,0 +1,270 @@
+/* ===== CTF PAGE ===== */
+
+.ctf-page {
+  padding-top: 7rem;
+  padding-bottom: var(--space-section);
+}
+
+.ctf-page__hero {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  padding: var(--space-3xl) 0;
+}
+
+.ctf-page__hero-heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-black);
+  color: var(--color-text-primary);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+}
+
+.ctf-page__hero-heading span {
+  display: block;
+}
+
+.ctf-page__hero-heading .accent {
+  color: var(--color-blue);
+}
+
+.ctf-page__hero-desc {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  max-width: 500px;
+  margin: 0 auto var(--space-lg);
+}
+
+/* ── Challenge Categories ── */
+.ctf-categories {
+  margin-bottom: var(--space-3xl);
+}
+
+.ctf-categories__tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.ctf-tab {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  color: var(--color-text-dim);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.ctf-tab:hover,
+.ctf-tab.active {
+  border-color: var(--color-blue);
+  color: var(--color-blue);
+  background: var(--color-blue-subtle);
+}
+
+/* ── Challenge Cards ── */
+.ctf-challenges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+}
+
+.challenge-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+}
+
+.challenge-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+}
+
+.challenge-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.challenge-card__category {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+}
+
+.challenge-card__difficulty {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+.challenge-card__difficulty--easy {
+  color: var(--color-green);
+  border-color: rgba(0, 245, 160, 0.3);
+}
+
+.challenge-card__difficulty--medium {
+  color: #ffd700;
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.challenge-card__difficulty--hard {
+  color: #ff6b6b;
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.challenge-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.challenge-card__desc {
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-sm);
+}
+
+.challenge-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.challenge-card__points {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.challenge-card__solves {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* ── Leaderboard ── */
+.ctf-leaderboard {
+  margin-bottom: var(--space-3xl);
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table thead {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.leaderboard-table th {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+
+.leaderboard-table td {
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.leaderboard-table tr:hover td {
+  background: var(--color-stone-darkest);
+}
+
+.leaderboard-rank {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+}
+
+.leaderboard-rank--gold { color: #ffd700; }
+.leaderboard-rank--silver { color: #c0c0c0; }
+.leaderboard-rank--bronze { color: #cd7f32; }
+
+.leaderboard-score {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-semibold);
+  color: var(--color-blue);
+}
+
+/* ── Past CTFs ── */
+.ctf-past {
+  margin-bottom: var(--space-section);
+}
+
+.ctf-past__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.past-ctf-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.past-ctf-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+}
+
+.past-ctf-card__year {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.past-ctf-card__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 900px) {
+  .ctf-challenges { grid-template-columns: repeat(2, 1fr); }
+  .ctf-past__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .ctf-challenges { grid-template-columns: 1fr; }
+  .ctf-past__grid { grid-template-columns: 1fr; }
+}

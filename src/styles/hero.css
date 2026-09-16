@@ -1,0 +1,309 @@
+/* ===== HERO SECTION ===== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  overflow: hidden;
+  padding: 8rem var(--container-pad) 0;
+  max-width: var(--container-wide);
+  margin: 0 auto;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  flex: 1;
+  max-width: 600px;
+}
+
+/* ── System Label ── */
+.hero__sys-label {
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Main Heading ── */
+.hero__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-black);
+  color: var(--color-text-primary);
+  line-height: 0.95;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+.hero__heading span {
+  display: block;
+}
+
+.hero__heading .accent {
+  color: var(--color-blue);
+}
+
+/* ── Thin Rule ── */
+.hero__rule {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: var(--space-md) 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ── Description ── */
+.hero__desc {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0 0 var(--space-md) 0;
+  line-height: var(--lh-body);
+}
+
+/* ── Live Stats Bar ── */
+.hero__live-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.hero__live-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero__live-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: var(--fw-black);
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.hero__live-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero__live-stat-sep {
+  color: rgba(255,255,255,0.12);
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+/* ── CTA Row ── */
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+/* ── 3D Tech Container ── */
+.hero__3d-container {
+  position: relative;
+  width: 45vw;
+  height: 45vw;
+  max-width: 500px;
+  max-height: 500px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Scroll Indicator ── */
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* ── HUD Panels ── */
+.hero__hud-panel {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dim);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hud-label {
+  opacity: 0.5;
+  margin-bottom: 2px;
+}
+
+.hud-label.mt {
+  margin-top: 6px;
+}
+
+.hud-val {
+  color: var(--color-text-secondary);
+}
+
+.hud-val.highlight {
+  color: var(--color-blue);
+  text-shadow: 0 0 5px var(--color-blue);
+}
+
+.hud-val.green {
+  color: var(--color-green);
+  text-shadow: 0 0 5px var(--color-green);
+}
+
+.hud-status {
+  top: 10%;
+  left: -20%;
+}
+
+.hud-auth {
+  bottom: 15%;
+  right: -10%;
+}
+
+.hud-packet {
+  top: 20%;
+  right: -30%;
+}
+
+/* ── OWASP Identity Panel ── */
+.hero__identity {
+  margin-bottom: var(--space-lg);
+}
+
+.hero__identity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: var(--space-md);
+}
+
+.hero__identity-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-green);
+  box-shadow: 0 0 8px var(--color-green);
+}
+
+.hero__identity-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Tagline ── */
+.hero__tagline {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-text-dim);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.hero__tagline span {
+  color: var(--color-text-secondary);
+  margin: 0 0.5rem;
+}
+
+/* ── Terminal Window ── */
+.hero__terminal-window {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 300px;
+  background: rgba(5, 6, 6, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.hero__terminal-window .terminal-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero__terminal-window .terminal-header .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.hero__terminal-window .terminal-header .dot.r { background: #ff5f56; }
+.hero__terminal-window .terminal-header .dot.y { background: #ffbd2e; }
+.hero__terminal-window .terminal-header .dot.g { background: #27c93f; }
+
+.hero__terminal-window .terminal-header .title {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--color-text-dim);
+}
+
+.hero__terminal-window .terminal-body {
+  padding: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  min-height: 80px;
+}
+
+/* ── Bottom info ── */
+.hero__bottom-info {
+  position: absolute;
+  bottom: 2rem;
+  left: var(--container-pad);
+  z-index: 2;
+}
+
+.hero__bottom-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+}
+
+@media (max-width: 640px) {
+  .hero__terminal-window {
+    display: none;
+  }
+
+  .hero__bottom-info {
+    display: none;
+  }
+}

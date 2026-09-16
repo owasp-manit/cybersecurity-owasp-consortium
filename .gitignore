@@ -1,36 +1,29 @@
-# Logs
-logs
-*.log
+# Dependencies
+node_modules/
+yarn.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-lerna-debug.log*
-resume.log
 
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Optional npm cache directory
-.npm
-
-# Output directory/temp files
-temp/
+# Build
 dist/
-out/
 build/
-.next/
 
-# IDEs and editors
-.idea/
+# Environment variables
+.env
+.env.*.local
+
+# IDEs
 .vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.idea/
+*.swp
+*~
 
-# Operating System Files
+# Testing
+coverage/
+.nyc_output/
+testem
+
+# OS
 .DS_Store
 Thumbs.db
-
