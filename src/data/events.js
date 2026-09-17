@@ -27,7 +27,7 @@ export const events = [
     year: '2026',
     location: 'MANIT Bhopal',
     description: 'Test your skills in real-world challenges and solve CTF problems across web, crypto, forensics, and reverse engineering.',
-    fullDescription: 'The annual internal CTF competition organized by OWASP Consortium MANIT. Participants compete individually or in teams to solve challenges across multiple categories including Web Exploitation, Cryptography, Digital Forensics, OSINT, Reverse Engineering, and Binary Exploitation. Prizes for top 3 teams.',
+    fullDescription: 'The annual internal CTF competition organized by Cybersecurity OWASP Consortium MANIT. Participants compete individually or in teams to solve challenges across multiple categories including Web Exploitation, Cryptography, Digital Forensics, OSINT, Reverse Engineering, and Binary Exploitation. Prizes for top 3 teams.',
     speakers: ['Rohan Verma', 'Core Team'],
     venue: 'Computer Center, MANIT',
     featured: false,

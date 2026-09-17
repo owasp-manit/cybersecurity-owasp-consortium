@@ -1,6 +1,6 @@
-# OWASP Consortium MANIT Bhopal
+# Cybersecurity OWASP Consortium MANIT Bhopal
 
-Welcome to the official website repository for the **OWASP Consortium** at MANIT Bhopal. This platform serves as a hub for our community, showcasing our events, collaborations, team members, and the essence of what we do in the cybersecurity domain.
+Welcome to the official website repository for the **Cybersecurity OWASP Consortium** at MANIT Bhopal. This platform serves as a hub for our community, showcasing our events, collaborations, team members, and the essence of what we do in the cybersecurity domain.
 
 ## 🚀 Overview
 

@@ -84,10 +84,10 @@ export function renderHome() {
               <span class="about__image-label">SYS // MANIT.BHOPAL.IN</span>
             </div>
             <div class="about__text">
-              <span class="section-overline reveal-up">ABOUT OWASP CONSORTIUM</span>
+              <span class="section-overline reveal-up">ABOUT CYBERSECURITY OWASP CONSORTIUM</span>
               <h2 class="section-title reveal-up">MORE THAN A <span>CLUB.</span></h2>
               <p class="about__desc reveal-up">
-                A community built around cybersecurity. OWASP Consortium at MANIT Bhopal focuses on
+                A community built around cybersecurity. Cybersecurity OWASP Consortium at MANIT Bhopal focuses on
                 cybersecurity education, practical security research, workshops, open-source
                 projects and community building.
               </p>
@@ -295,9 +295,9 @@ export function renderFooter() {
         <div class="footer__inner">
           <div class="footer__brand">
             <div class="footer__logo-row">
-              <img class="footer__logo" src="/src/assets/logo.png" alt="OWASP Logo" style="filter: brightness(0) invert(1);" />
-              <div>
-                <span class="footer__brand-name">OWASP CONSORTIUM</span>
+              <img class="footer__logo" src="/src/assets/logo.png" alt="OWASP Logo" />
+              <div style="text-align: center;">
+                <span class="footer__brand-name">CYBERSECURITY OWASP CONSORTIUM</span>
                 <span class="footer__brand-sub">MANIT BHOPAL</span>
               </div>
             </div>
@@ -338,7 +338,7 @@ export function renderFooter() {
           </div>
         </div>
         <div class="footer__bottom">
-          <span class="footer__copyright">© 2025 OWASP Consortium, MANIT Bhopal. All rights reserved.</span>
+          <span class="footer__copyright">© 2025 Cybersecurity OWASP Consortium, MANIT Bhopal. All rights reserved.</span>
         </div>
       </div>
     </footer>

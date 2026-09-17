@@ -29,9 +29,9 @@ export class HeroScene {
     this.container.appendChild(this.renderer.domElement);
 
     this.camera = new THREE.PerspectiveCamera(45, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
-    this.camera.position.set(0, 40, 130);
+    this.camera.position.set(0, 40, 170);
     this.camera.lookAt(0, 0, 0);
-    this.initialCameraZ = 130;
+    this.initialCameraZ = 170;
 
     // Lighting - white only for B&W theme
     const ambient = new THREE.AmbientLight(0xffffff, 0.6);
@@ -128,42 +128,43 @@ export class HeroScene {
     this.termVisibleLines = Math.floor(512 / this.termLineHeight);
 
     // Core sphere with terminal texture
-    const coreGeo = new THREE.SphereGeometry(12, 48, 48);
+    const coreGeo = new THREE.SphereGeometry(14, 48, 48);
     const coreMat = new THREE.MeshStandardMaterial({
       map: this.termTex,
       roughness: 0.4,
       metalness: 0.3,
-      emissive: 0x001100,
-      emissiveIntensity: 0.3,
+      emissive: 0x000000,
+      color: 0x000000,
+      emissiveIntensity: 0.1,
     });
     this.coreMesh = new THREE.Mesh(coreGeo, coreMat);
     this.coreGroup.add(this.coreMesh);
 
     // Outer tinted glass shell
-    const glowGeo = new THREE.SphereGeometry(13.2, 32, 32);
+    const glowGeo = new THREE.SphereGeometry(15.2, 32, 32);
     const glowMat = new THREE.MeshBasicMaterial({
-      color: 0x00ff88,
+      color: 0x000000,
       transparent: true,
-      opacity: 0.03,
+      opacity: 0.5,
       side: THREE.BackSide,
     });
     this.coreGroup.add(new THREE.Mesh(glowGeo, glowMat));
 
     // Equatorial latitude/longitude lines (globe look)
     const globeMat = new THREE.MeshBasicMaterial({
-      color: 0x00ff88,
+      color: 0xffffff,
       wireframe: false,
       transparent: true,
-      opacity: 0.12,
+      opacity: 0.15,
     });
     for (let i = 0; i < 6; i++) {
-      const latGeo = new THREE.TorusGeometry(12, 0.05, 8, 64);
+      const latGeo = new THREE.TorusGeometry(14, 0.05, 8, 64);
       const lat = new THREE.Mesh(latGeo, globeMat.clone());
       lat.rotation.x = (i / 6) * Math.PI;
       this.coreGroup.add(lat);
     }
     for (let i = 0; i < 8; i++) {
-      const lonGeo = new THREE.TorusGeometry(12, 0.05, 8, 64);
+      const lonGeo = new THREE.TorusGeometry(14, 0.05, 8, 64);
       const lon = new THREE.Mesh(lonGeo, globeMat.clone());
       lon.rotation.y = (i / 8) * Math.PI;
       lon.rotation.x = Math.PI / 2;
@@ -171,12 +172,12 @@ export class HeroScene {
     }
 
     // Outer icosahedron wireframe
-    const wireGeo = new THREE.IcosahedronGeometry(14.5, 1);
+    const wireGeo = new THREE.IcosahedronGeometry(17.5, 1);
     const wireMat = new THREE.MeshBasicMaterial({
-      color: 0x00ff88,
+      color: 0xffffff,
       wireframe: true,
       transparent: true,
-      opacity: 0.15,
+      opacity: 0.2,
     });
     this.coreWire = new THREE.Mesh(wireGeo, wireMat);
     this.coreGroup.add(this.coreWire);
@@ -212,9 +213,9 @@ export class HeroScene {
       if (line.startsWith('$')) {
         ctx.fillStyle = '#ffffff';
       } else if (line.startsWith('>')) {
-        ctx.fillStyle = '#00ff88';
+        ctx.fillStyle = '#aaaaaa';
       } else {
-        ctx.fillStyle = 'rgba(0, 255, 136, 0.6)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
       }
 
       // Add typing cursor effect on last visible line
@@ -235,80 +236,114 @@ export class HeroScene {
     this.termTex.needsUpdate = true;
   }
 
+  _createTextTexture(text) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 128;
+    const ctx = canvas.getContext('2d');
+
+    // Background (transparent or slightly tinted)
+    ctx.fillStyle = 'rgba(0, 20, 0, 0.4)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Border
+    ctx.strokeStyle = '#00ff88';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+    // Text
+    ctx.fillStyle = '#00ff88';
+    ctx.font = 'bold 36px monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    return texture;
+  }
+
   createSolarSystem() {
     this.orbits = []; // { ring, planets, radius, speed, tilt }
     const textureLoader = new THREE.TextureLoader();
-    textureLoader.setCrossOrigin('anonymous');
 
-    // Define each orbit: radius, tilt (deg), speed, logos count, logo URLs
+    // Define each orbit: radius, tilt (deg), speed, logos
     const orbitDefs = [
       {
-        radius: 25,
-        tilt: 10, // degrees from equator
-        speed: 0.6, // full rotations per minute feel
-        logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.png',
-        ],
-        lineColor: 0xffffff,
-        lineOpacity: 0.25,
-        planetSize: 4.5,
+        radius: 60,
+        tiltX: 15,
+        tiltY: 30,
+        tiltZ: -20,
+        speed: 0.9,
+        logos: ['/icons/python.svg', '/icons/linux.svg', '/icons/bash.svg', '/icons/ubuntu.svg'],
+        lineColor: 0x00aaff,
+        lineOpacity: 0.5,
+        planetSize: 7.0,
       },
       {
-        radius: 38,
-        tilt: -15,
-        speed: 0.4,
-        logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-plain.png',
-        ],
-        lineColor: 0xdddddd,
-        lineOpacity: 0.2,
-        planetSize: 5.0,
+        radius: 60,
+        tiltX: -20,
+        tiltY: -15,
+        tiltZ: 30,
+        speed: 0.85,
+        logos: ['/icons/docker.svg', '/icons/kubernetes.svg', '/icons/aws.svg', '/icons/nginx.svg'],
+        lineColor: 0x00aaff,
+        lineOpacity: 0.5,
+        planetSize: 7.5,
       },
       {
-        radius: 52,
-        tilt: 30,
-        speed: 0.25,
-        logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg', // aws wordmark is mostly SVG, fallback will apply if it fails
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.png',
-        ],
-        lineColor: 0xbbbbbb,
-        lineOpacity: 0.15,
-        planetSize: 5.5,
+        radius: 60,
+        tiltX: 35,
+        tiltY: -40,
+        tiltZ: 10,
+        speed: 0.95,
+        logos: ['/icons/react.svg', '/icons/vue.svg', '/icons/angular.svg', '/icons/svelte.svg'],
+        lineColor: 0x00aaff,
+        lineOpacity: 0.5,
+        planetSize: 7.0,
       },
       {
-        radius: 66,
-        tilt: -20,
-        speed: 0.15,
-        logos: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.png',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.png',
-        ],
-        lineColor: 0xaaaaaa,
-        lineOpacity: 0.12,
-        planetSize: 6.0,
+        radius: 60,
+        tiltX: -40,
+        tiltY: 25,
+        tiltZ: -35,
+        speed: 0.8,
+        logos: ['/icons/go.svg', '/icons/rust.svg', '/icons/cplusplus.svg', '/icons/typescript.svg'],
+        lineColor: 0x00aaff,
+        lineOpacity: 0.5,
+        planetSize: 7.0,
+      },
+      {
+        radius: 60,
+        tiltX: 10,
+        tiltY: 45,
+        tiltZ: 40,
+        speed: 1.0,
+        logos: ['/icons/nodejs.svg', '/icons/graphql.svg', '/icons/postgresql.svg', '/icons/redis.svg'],
+        lineColor: 0x00aaff,
+        lineOpacity: 0.5,
+        planetSize: 7.0,
+      },
+      {
+        radius: 60,
+        tiltX: -30,
+        tiltY: -50,
+        tiltZ: -15,
+        speed: 1.1,
+        logos: ['/icons/tensorflow.svg', '/icons/wireshark.svg', '/icons/git.svg'],
+        lineColor: 0x00aaff,
+        lineOpacity: 0.5,
+        planetSize: 7.5,
       },
     ];
 
     orbitDefs.forEach((def, orbitIndex) => {
       const orbitGroup = new THREE.Group();
 
-      // Tilt the entire orbit group
-      orbitGroup.rotation.x = THREE.MathUtils.degToRad(def.tilt);
-      // Slight z tilt for depth
-      orbitGroup.rotation.z = THREE.MathUtils.degToRad(orbitIndex * 8);
+      // Atom criss-cross tilts
+      orbitGroup.rotation.x = THREE.MathUtils.degToRad(def.tiltX);
+      orbitGroup.rotation.y = THREE.MathUtils.degToRad(def.tiltY);
+      orbitGroup.rotation.z = THREE.MathUtils.degToRad(def.tiltZ);
 
       // Draw the circular ring path
       const ringPoints = [];
@@ -330,14 +365,11 @@ export class HeroScene {
       const ringLine = new THREE.LineLoop(ringGeo, ringMat);
       orbitGroup.add(ringLine);
 
-      // Create a group that will rotate, holding all planets
       const planetGroup = new THREE.Group();
       orbitGroup.add(planetGroup);
 
       // Place logos evenly around the ring
-      const planets = [];
       def.logos.forEach((logoUrl, j) => {
-        // Create sprite material first to allow fallback modification
         const spriteMat = new THREE.SpriteMaterial({
           transparent: true,
           opacity: 0.95,
@@ -355,7 +387,6 @@ export class HeroScene {
         const sprite = new THREE.Sprite(spriteMat);
         sprite.scale.set(def.planetSize, def.planetSize, 1);
 
-        // Evenly distribute around the circle
         const angle = (j / def.logos.length) * Math.PI * 2;
         sprite.position.set(
           Math.cos(angle) * def.radius,
@@ -364,7 +395,6 @@ export class HeroScene {
         );
 
         planetGroup.add(sprite);
-        planets.push(sprite);
       });
 
       this.sceneGroup.add(orbitGroup);
