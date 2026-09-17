@@ -78,7 +78,7 @@ export function renderSponsorsPage() {
             <span class="section-overline">BECOME A SPONSOR</span>
             <h2 class="sponsors-cta-section__heading">PARTNER WITH <span>US</span></h2>
             <p class="sponsors-cta-section__desc">
-              Interested in supporting OWASP Consortium events at MANIT Bhopal?<br/>Fill out the application — our team responds within 48 hours.
+              Interested in supporting Cybersecurity OWASP Consortium events at MANIT Bhopal?<br/>Fill out the application — our team responds within 48 hours.
             </p>
           </div>
 

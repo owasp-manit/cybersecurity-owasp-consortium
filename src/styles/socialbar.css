@@ -17,6 +17,13 @@
   padding: 0.5rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  transition: opacity var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
+}
+
+.social-bar--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(20px);
 }
 
 .social-bar__line {

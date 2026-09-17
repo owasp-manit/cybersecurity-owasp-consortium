@@ -26,7 +26,7 @@ export function renderAboutPage() {
   ];
 
   const timeline = [
-    { year: '2019', event: 'OWASP Consortium chapter founded at MANIT Bhopal' },
+    { year: '2019', event: 'Cybersecurity OWASP Consortium chapter founded at MANIT Bhopal' },
     { year: '2020', event: 'First internal CTF competition with 80+ participants' },
     { year: '2021', event: 'Partnered with GDG Bhopal for security awareness events' },
     { year: '2022', event: 'Launched open-source security toolkit project' },
@@ -43,8 +43,8 @@ export function renderAboutPage() {
           <div class="about-page__hero-left reveal-left">
             <span class="section-overline">ABOUT US</span>
             <h1 class="about-page__hero-heading">SECURING<br/>TOMORROW<br/><span>TOGETHER.</span></h1>
-            <p class="about-page__hero-desc">
-              OWASP Consortium, MANIT Bhopal is a student-driven community dedicated to promoting cybersecurity awareness, learning and innovation.
+            <p class="about-page__main-desc reveal-up">
+              Cybersecurity OWASP Consortium, MANIT Bhopal is a student-driven community dedicated to promoting cybersecurity awareness, learning and innovation.
             </p>
             <div class="about-page__hero-ctas">
               <a href="#/team" class="btn btn--primary">Meet the Team <span class="btn-arrow">→</span></a>

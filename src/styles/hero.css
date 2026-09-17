@@ -19,6 +19,7 @@
   text-align: left;
   flex: 1;
   max-width: 600px;
+  padding-left: clamp(4rem, 10vw, 12rem);
 }
 
 /* ── System Label ── */

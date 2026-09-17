@@ -202,6 +202,16 @@ function initScrollAnimations() {
     });
   }
 
+  // Hide social bar when footer is in view
+  if (document.querySelector('.footer')) {
+    ScrollTrigger.create({
+      trigger: '.footer',
+      start: 'top 90%',
+      onEnter: () => document.getElementById('social-bar')?.classList.add('social-bar--hidden'),
+      onLeaveBack: () => document.getElementById('social-bar')?.classList.remove('social-bar--hidden')
+    });
+  }
+
   // Reveal animations
   gsap.utils.toArray('.reveal-up').forEach(el => {
     gsap.fromTo(el,
