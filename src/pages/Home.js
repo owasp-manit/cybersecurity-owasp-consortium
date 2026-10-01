@@ -7,7 +7,7 @@ export function initMatrixHero() {
   const canvas = document.getElementById('matrix-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  
+
   let w, h;
   const setSize = () => {
     w = canvas.width = window.innerWidth;
@@ -23,10 +23,10 @@ export function initMatrixHero() {
   function render() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, w, h);
-    
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)'; 
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
     ctx.font = '12px monospace';
-    
+
     ypos.forEach((y, ind) => {
       const text = Math.random() > 0.5 ? Math.floor(Math.random() * 2).toString() : String.fromCharCode(Math.random() * 6 + 65);
       const x = ind * 14;
@@ -34,7 +34,7 @@ export function initMatrixHero() {
       if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
       else ypos[ind] = y + 14;
     });
-    
+
     animationId = requestAnimationFrame(render);
   }
   render();
@@ -44,14 +44,14 @@ export function renderHome() {
   // Normalize event data source - sort by date and pick next upcoming
   const now = new Date();
   // Simple check assuming date is YYYY-MM-DD
-  const futureEvents = [...events].filter(e => new Date(e.date) >= now).sort((a,b) => new Date(a.date) - new Date(b.date));
+  const futureEvents = [...events].filter(e => new Date(e.date) >= now).sort((a, b) => new Date(a.date) - new Date(b.date));
   const featuredEvent = futureEvents[0] || events[0];
   const upcomingEvents = futureEvents.length > 1 ? futureEvents.slice(1, 4) : events.slice(1, 4);
 
 
   return `
     <!-- HERO -->
-    <section class="hero-v2 section" id="hero" style="position:relative; overflow:hidden; height:100dvh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <section class="hero-v2 section" id="hero" style="position:relative; overflow:hidden; min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding-top: calc(80px + 24px); padding-bottom: 96px;">
       
       <div class="container hero-container" style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
         
@@ -62,7 +62,7 @@ export function renderHome() {
         
         <!-- 3: Headline -->
         <h1 class="hero-v2__title" style="margin:0; padding:0; display:flex; flex-direction:column; gap:16px;">
-          <span class="staggered-fade" style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.25rem, 3.2vw, 2.25rem); letter-spacing: 0.15em; -webkit-text-stroke: 1.5px rgba(255,255,255,0.9); color: rgba(255,255,255,0.06); display:block; line-height:1; animation-delay: 0.1s;">CYBERSECURITY</span>
+          <span class="staggered-fade" style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: 0.15em; -webkit-text-stroke: 1.5px rgba(255,255,255,0.9); color: rgba(255,255,255,0.06); display:block; line-height:1; animation-delay: 0.1s;">CYBERSECURITY</span>
           <span class="staggered-fade" style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: 0.01em; color: #fff; line-height: 1.0; text-shadow: 0 4px 30px rgba(0,0,0,0.7); display:block; animation-delay: 0.3s;">OWASP CONSORTIUM</span>
         </h1>
         
@@ -73,7 +73,7 @@ export function renderHome() {
         <div class="hero-v2__actions staggered-fade" style="display:flex; flex-direction:column; align-items:center; margin-bottom:40px; width:100%; animation-delay: 0.4s;">
           <div class="hero-v2__ctas" style="display:flex; flex-wrap:wrap; gap: 16px; justify-content:center; width:100%;">
             <a href="#/about" class="btn magnetic-btn" style="height: 56px; min-width: 180px; padding: 0 2.5rem; font-size: 0.95rem; letter-spacing: 0.1em; display:inline-flex; align-items:center; justify-content:center; background:#ff1a1a; color:#fff; border:none; border-radius: 4px; transition:all 0.3s; font-family:var(--font-mono); text-transform:uppercase; box-shadow: 0 4px 15px rgba(255,26,26,0.3);" onmouseover="this.style.boxShadow='0 10px 30px rgba(255,26,26,0.6)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 4px 15px rgba(255,26,26,0.3)'; this.style.transform='none'" onfocus="this.style.outline='2px solid #fff'">JOIN THE CLUB</a>
-            <a href="#/events" class="btn magnetic-btn" style="height: 56px; min-width: 180px; padding: 0 2.5rem; font-size: 0.95rem; letter-spacing: 0.1em; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.2); border-radius: 4px; color:#fff; transition:all 0.3s; font-family:var(--font-mono); text-transform:uppercase; backdrop-filter: blur(8px);" onmouseover="this.style.background='rgba(255,255,255,0.15)'; this.style.borderColor='rgba(255,255,255,0.4)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='none'" onfocus="this.style.outline='2px solid #fff'">VIEW EVENTS →</a>
+            <a href="#/events" class="btn magnetic-btn" style="height: 56px; min-width: 180px; padding: 0 2.5rem; font-size: 0.95rem; letter-spacing: 0.1em; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.2); border-radius: 4px; color:#fff; transition:all 0.3s; font-family:var(--font-mono); text-transform:uppercase; backdrop-filter: blur(8px);" onmouseover="this.style.background='rgba(255,255,255,0.15)'; this.style.borderColor='rgba(255,255,255,0.4)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.2)'; this.style.transform='none'" onfocus="this.style.outline='2px solid #fff'">VIEW EVENTS →</a>
           </div>
         </div>
         
@@ -84,7 +84,10 @@ export function renderHome() {
           <a href="https://github.com/owasp-manit" aria-label="GitHub" style="display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85); transition:all 0.2s;" onmouseover="this.style.borderColor='red'; this.style.color='red'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'; this.style.color='rgba(255,255,255,0.85)'; this.style.transform='none'" onfocus="this.style.outline='2px solid red'"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
           <a href="https://youtube.com/@owasp_manit" aria-label="YouTube" style="display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85); transition:all 0.2s;" onmouseover="this.style.borderColor='red'; this.style.color='red'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'; this.style.color='rgba(255,255,255,0.85)'; this.style.transform='none'" onfocus="this.style.outline='2px solid red'"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
         </div>
-    
+
+        <!-- Network animation -->
+        
+
       </div>
     
       <!-- Scroll Cue -->
@@ -126,10 +129,10 @@ export function renderHome() {
               </p>
               <div class="about__chips reveal-up" style="margin-bottom: 2rem;">
                 ${StatsTable([
-                  { value: '200+', label: 'MEMBERS' },
-                  { value: '15+', label: 'EVENTS' },
-                  { value: '5+', label: 'YEARS' }
-                ])}
+    { value: '200+', label: 'MEMBERS' },
+    { value: '15+', label: 'EVENTS' },
+    { value: '5+', label: 'YEARS' }
+  ])}
               </div>
               <a href="#/about" class="btn btn--outline reveal-up">LEARN MORE →</a>
             </div>
@@ -171,7 +174,7 @@ export function renderHome() {
                     style="filter: grayscale(1) brightness(0.8);"
                   />
                 `)}
-                <div class="event-featured__overlay" style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); padding: 2rem;">
+                <div class="event-featured__overlay" style="background: rgba(0,0,0,0.6); border: 1px solid var(--color-border); padding: 2rem;">
                   <div class="event-featured__top-row">
                     <span class="event-featured__tag" style="border: 1px solid var(--color-border); padding: 0.25rem 0.5rem;">${featuredEvent.category}</span>
                     <span class="event-featured__badge" style="font-family: var(--font-mono);">[ FEATURED ]</span>
@@ -193,7 +196,7 @@ export function renderHome() {
             <!-- Other Events Grid — animated cards -->
             <div class="events__grid scroll-track" style="margin-top: 2rem;">
               ${BorderGrid(upcomingEvents.map((event, i) => ({
-                html: `
+    html: `
                   <div class="event-card__log-header" style="margin-bottom:1rem; border:none; padding:0; display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-dim);">
                     <span class="event-card__log-idx">[${String(i + 1).padStart(2, '0')}]</span>
                     <span class="event-card__tag" style="border:1px solid var(--color-border); padding:0.15rem 0.4rem;">${event.category}</span>
@@ -206,7 +209,7 @@ export function renderHome() {
                     <span class="event-card__cta" style="cursor:pointer; color:var(--color-white);" data-event-id="${event.id}">DETAILS →</span>
                   </div>
                 `
-              })))}
+  })))}
             </div>
           </div>
         </div>

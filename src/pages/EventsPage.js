@@ -47,7 +47,7 @@ export function renderEventsPage() {
         ${upcomingEvents.length > 0 ? (() => {
           const nextEvent = upcomingEvents[0];
           return `
-          <div class="next-event-panel reveal-up" style="border:1px solid var(--color-border); background:rgba(0,0,0,0.2); backdrop-filter:blur(10px); padding:2rem; margin-bottom:3rem; display:flex; justify-content:space-between; align-items:center;">
+          <div class="next-event-panel reveal-up" style="border:1px solid var(--color-border); background:transparent; backdrop-filter:blur(10px); padding:2rem; margin-bottom:3rem; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-dim); margin-bottom:0.5rem;">SYS // NEXT_EVENT</div>
               <h2 style="font-family:var(--font-display); font-size:2.5rem; text-transform:uppercase; margin-bottom:0.5rem; color:var(--color-white);">${nextEvent.title}</h2>
@@ -88,7 +88,7 @@ export function renderEventsPage() {
           <!-- GRID VIEW -->
           <div id="view-grid" class="events__grid">
             ${upcomingEvents.map((event, i) => `
-              <div class="event-card" data-category="${event.category}" data-title="${event.title.toLowerCase()}" style="border:1px solid var(--color-border); background:rgba(0,0,0,0.2); backdrop-filter:blur(5px); padding:2rem; position:relative; transition:background 0.3s; display:flex; flex-direction:column;">
+              <div class="event-card" data-category="${event.category}" data-title="${event.title.toLowerCase()}" style="border:1px solid var(--color-border); background:transparent; backdrop-filter:blur(5px); padding:2rem; position:relative; transition:background 0.3s; display:flex; flex-direction:column;">
                 <div style="margin-bottom:1rem; display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-dim);">
                   <span>ENTRY_${String(i + 1).padStart(3, '0')}</span>
                   <span style="border:1px solid var(--color-border); padding:0.15rem 0.4rem;">${event.category}</span>
@@ -122,7 +122,7 @@ export function renderEventsPage() {
           </div>
 
           <!-- TERMINAL VIEW -->
-          <div id="view-terminal" style="display:none; background:rgba(0,0,0,0.8); border:1px solid var(--color-border); padding:2rem; font-family:var(--font-mono); font-size:0.85rem; color:var(--color-text-dim);">
+          <div id="view-terminal" style="display:none; background:transparent; border:1px solid var(--color-border); padding:2rem; font-family:var(--font-mono); font-size:0.85rem; color:var(--color-text-dim);">
             <div style="color:var(--color-white); margin-bottom:1rem;">$ ls -l events/upcoming</div>
             <table style="width:100%; border-collapse:collapse;">
               ${upcomingEvents.map(event => `
@@ -150,7 +150,7 @@ export function renderEventsPage() {
 
           <div style="display:flex; gap:1.5rem; overflow-x:auto; padding-bottom:2rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; opacity:0.6; cursor:grab;">
             ${pastEvents.map((event, i) => `
-              <div class="event-card" data-category="${event.category}" data-title="${event.title.toLowerCase()}" style="flex:0 0 350px; scroll-snap-align: start; border:1px solid var(--color-border); background:rgba(0,0,0,0.2); padding:2rem; position:relative; display:flex; flex-direction:column; height:100%;">
+              <div class="event-card" data-category="${event.category}" data-title="${event.title.toLowerCase()}" style="flex:0 0 350px; scroll-snap-align: start; border:1px solid var(--color-border); background:transparent; padding:2rem; position:relative; display:flex; flex-direction:column; height:100%;">
                 <div style="margin-bottom:1rem; display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-dim);">
                   <span>ARCHIVE_${String(i + 1).padStart(3, '0')}</span>
                   <span style="border:1px solid var(--color-border); padding:0.15rem 0.4rem;">${event.category}</span>

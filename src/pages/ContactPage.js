@@ -67,7 +67,7 @@ export function renderContactPage() {
             </div>
 
             <!-- Map -->
-            <div class="contact-map reveal-left" style="--delay:0.3s; flex:1; display:flex; flex-direction:column; min-height:300px; border:1px solid var(--color-border); background:rgba(0,0,0,0.2); overflow:hidden;">
+            <div class="contact-map reveal-left" style="--delay:0.3s; flex:1; display:flex; flex-direction:column; min-height:300px; border:1px solid var(--color-border); background:transparent; overflow:hidden;">
               <div class="contact-map__label" style="padding:1rem; border-bottom:1px solid var(--color-border); font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-dim); display:flex; align-items:center; gap:0.5rem;">
                 <span class="contact-map__dot" style="width:8px; height:8px; background:var(--color-white); display:inline-block;"></span>
                 SYS // MANIT.AC.IN — CAMPUS MAP
@@ -82,7 +82,7 @@ export function renderContactPage() {
                   loading="lazy" 
                   referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
-                <div style="position:absolute; bottom:0; left:0; padding:0.5rem 0.75rem; background:rgba(0,0,0,0.75); font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.15em; color:rgba(255,255,255,0.8); pointer-events:none;">MANIT BHOPAL</div>
+                <div style="position:absolute; bottom:0; left:0; padding:0.5rem 0.75rem; background:transparent; font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.15em; color:rgba(255,255,255,0.8); pointer-events:none;">MANIT BHOPAL</div>
               </div>
             </div>
 

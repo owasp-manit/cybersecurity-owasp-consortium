@@ -46,7 +46,7 @@ export function renderTeamPage() {
         </div>
 
         <!-- STICKY NAV -->
-        <div style="position:sticky; top:80px; z-index:50; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px); padding:1rem 0; border-bottom:1px solid var(--color-border); margin-bottom:2rem; display:flex; gap:2rem; font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; justify-content:center;">
+        <div style="position:sticky; top:80px; z-index:50; background:transparent; backdrop-filter:blur(10px); padding:1rem 0; border-bottom:1px solid var(--color-border); margin-bottom:2rem; display:flex; gap:2rem; font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; justify-content:center;">
           <a href="#faculty" style="color:var(--color-text-dim); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--color-text-dim)'">Faculty</a>
           <a href="#leads" style="color:var(--color-text-dim); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--color-text-dim)'">Leads</a>
           <a href="#core" style="color:var(--color-text-dim); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--color-text-dim)'">Core</a>
@@ -59,11 +59,11 @@ export function renderTeamPage() {
           <div class="team-grid--core" style="perspective:1000px;">
             ${faculty.map((m, i) => `
               <div class="core-card-wrap reveal-up" style="--delay:${i * 0.05}s; width:100%; height:280px; position:relative; transform-style:preserve-3d; transition:transform 0.6s; cursor:pointer;" onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.2); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
                   <img src="${m.image || getAvatar(m.name)}" alt="${m.name}" loading="lazy" onerror="this.onerror=null; this.src='${getAvatar(m.name)}';" style="width:120px; height:120px; object-fit:cover; filter:grayscale(1) brightness(0.8); margin-bottom:1.5rem;" />
                   <div style="font-family:var(--font-display); font-size:1.2rem; text-transform:uppercase; text-align:center;">${m.name}</div>
                 </div>
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.4); transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
                   <div style="font-family:var(--font-mono); font-size:0.85rem; color:var(--color-text-dim); margin-bottom:1rem;">ROLE</div>
                   <div style="font-family:var(--font-display); font-size:1.5rem; color:var(--color-white); text-transform:uppercase; line-height:1.2;">${m.role}</div>
                   ${m.linkedin ? `<a href="${m.linkedin}" target="_blank" style="margin-top:1.5rem; padding:0.5rem 1rem; border:1px solid var(--color-white); color:var(--color-white); text-decoration:none; font-family:var(--font-mono); font-size:0.75rem; transition:all 0.2s;" onmouseover="this.style.background='var(--color-white)'; this.style.color='#000';" onmouseout="this.style.background='transparent'; this.style.color='var(--color-white)';">LINKEDIN →</a>` : ''}
@@ -79,11 +79,11 @@ export function renderTeamPage() {
           <div class="team-grid--core" style="perspective:1000px;">
             ${finalYear.map((m, i) => `
               <div class="core-card-wrap reveal-up" style="--delay:${i * 0.05}s; width:100%; height:280px; position:relative; transform-style:preserve-3d; transition:transform 0.6s; cursor:pointer;" onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.2); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
                   <img src="${m.image || getAvatar(m.name)}" alt="${m.name}" loading="lazy" onerror="this.onerror=null; this.src='${getAvatar(m.name)}';" style="width:120px; height:120px; object-fit:cover; filter:grayscale(1) brightness(0.8); margin-bottom:1.5rem;" />
                   <div style="font-family:var(--font-display); font-size:1.2rem; text-transform:uppercase; text-align:center;">${m.name}</div>
                 </div>
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.4); transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
                   <div style="font-family:var(--font-mono); font-size:0.85rem; color:var(--color-text-dim); margin-bottom:1rem;">ROLE</div>
                   <div style="font-family:var(--font-display); font-size:1.5rem; color:var(--color-white); text-transform:uppercase; line-height:1.2;">${m.role}</div>
                   ${m.linkedin ? `<a href="${m.linkedin}" target="_blank" style="margin-top:1.5rem; padding:0.5rem 1rem; border:1px solid var(--color-white); color:var(--color-white); text-decoration:none; font-family:var(--font-mono); font-size:0.75rem; transition:all 0.2s;" onmouseover="this.style.background='var(--color-white)'; this.style.color='#000';" onmouseout="this.style.background='transparent'; this.style.color='var(--color-white)';">LINKEDIN →</a>` : ''}
@@ -99,11 +99,11 @@ export function renderTeamPage() {
           <div class="team-grid--core" style="perspective:1000px;">
             ${coreTeam.map((m, i) => `
               <div class="core-card-wrap reveal-up" style="--delay:${i * 0.05}s; width:100%; height:280px; position:relative; transform-style:preserve-3d; transition:transform 0.6s; cursor:pointer;" onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.2); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
                   <img src="${m.image || getAvatar(m.name)}" alt="${m.name}" loading="lazy" onerror="this.onerror=null; this.src='${getAvatar(m.name)}';" style="width:120px; height:120px; object-fit:cover; filter:grayscale(1) brightness(0.8); margin-bottom:1.5rem;" />
                   <div style="font-family:var(--font-display); font-size:1.2rem; text-transform:uppercase; text-align:center;">${m.name}</div>
                 </div>
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.4); transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
                   <div style="font-family:var(--font-mono); font-size:0.85rem; color:var(--color-text-dim); margin-bottom:1rem;">ROLE</div>
                   <div style="font-family:var(--font-display); font-size:1.5rem; color:var(--color-white); text-transform:uppercase; line-height:1.2;">${m.role}</div>
                   ${m.linkedin ? `<a href="${m.linkedin}" target="_blank" style="margin-top:1.5rem; padding:0.5rem 1rem; border:1px solid var(--color-white); color:var(--color-white); text-decoration:none; font-family:var(--font-mono); font-size:0.75rem; transition:all 0.2s;" onmouseover="this.style.background='var(--color-white)'; this.style.color='#000';" onmouseout="this.style.background='transparent'; this.style.color='var(--color-white)';">LINKEDIN →</a>` : ''}
@@ -128,11 +128,11 @@ export function renderTeamPage() {
           <div class="team-grid--core" style="perspective:1000px;">
             ${members.map((m, i) => `
               <div class="core-card-wrap reveal-up member-search-wrap" data-name="${m.name}" style="--delay:${i * 0.05}s; width:100%; height:280px; position:relative; transform-style:preserve-3d; transition:transform 0.6s; cursor:pointer;" onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.2); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem;">
                   <img src="${m.image || getAvatar(m.name)}" alt="${m.name}" loading="lazy" onerror="this.onerror=null; this.src='${getAvatar(m.name)}';" style="width:120px; height:120px; object-fit:cover; filter:grayscale(1) brightness(0.8); margin-bottom:1.5rem;" />
                   <div style="font-family:var(--font-display); font-size:1.2rem; text-transform:uppercase; text-align:center;">${m.name}</div>
                 </div>
-                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:rgba(0,0,0,0.4); transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
+                <div style="position:absolute; inset:0; backface-visibility:hidden; border:1px solid var(--color-border); background:transparent; transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center;">
                   <div style="font-family:var(--font-mono); font-size:0.85rem; color:var(--color-text-dim); margin-bottom:1rem;">ROLE</div>
                   <div style="font-family:var(--font-display); font-size:1.5rem; color:var(--color-white); text-transform:uppercase; line-height:1.2;">${m.role}</div>
                   ${m.linkedin ? `<a href="${m.linkedin}" target="_blank" style="margin-top:1.5rem; padding:0.5rem 1rem; border:1px solid var(--color-white); color:var(--color-white); text-decoration:none; font-family:var(--font-mono); font-size:0.75rem; transition:all 0.2s;" onmouseover="this.style.background='var(--color-white)'; this.style.color='#000';" onmouseout="this.style.background='transparent'; this.style.color='var(--color-white)';">LINKEDIN →</a>` : ''}
@@ -147,7 +147,7 @@ export function renderTeamPage() {
     
     <!-- FIXED HUD PANEL -->
     <div id="team-stats-hud" class="team-stats-hud">
-      <div class="os-window" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); margin:0;">
+      <div class="os-window" style="background:transparent; backdrop-filter: blur(10px); margin:0;">
         <div class="os-window__header">
           <span class="os-window__dot"></span><span class="os-window__dot"></span><span class="os-window__dot"></span>
           <span class="os-window__title">TARGET_DATA</span>

@@ -66,7 +66,7 @@ export function renderSponsorsPage() {
             </div>
             <div class="sponsors-tier__logos">
               ${tier.partners.map(p => `
-                <div class="sponsors-logo-card border-draw" style="padding:2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; border:1px solid var(--color-border); background:rgba(0,0,0,0.2);">
+                <div class="sponsors-logo-card border-draw" style="padding:2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; border:1px solid var(--color-border); background:transparent;">
                   <img src="${p.logo}" alt="${p.name}" class="sponsors-logo-card__img" style="filter:grayscale(1) brightness(2.5); transition:filter 0.3s; width:80px; height:80px; object-fit:contain; opacity:0.85;" onmouseover="this.style.filter='grayscale(0) brightness(1)';this.style.opacity='1'" onmouseout="this.style.filter='grayscale(1) brightness(2.5)';this.style.opacity='0.85'" />
                   <span class="sponsors-logo-card__name" style="font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.05em;">${p.name}</span>
                 </div>

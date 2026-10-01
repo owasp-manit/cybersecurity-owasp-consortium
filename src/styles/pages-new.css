@@ -249,7 +249,7 @@
 .team-member-card__hover-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -766,7 +766,7 @@
   font-size: 10px;
   color: var(--color-text-dim);
   letter-spacing: 0.1em;
-  background: rgba(0,0,0,0.8);
+  background: transparent;
   padding: 0.3rem 0.6rem;
 }
 

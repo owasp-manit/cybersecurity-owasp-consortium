@@ -73,8 +73,7 @@ function initNavbar() {
   // Scroll effect
   window.addEventListener('scroll', () => {
     if (window.currentRouteName === 'home') {
-      const heroThreshold = window.innerHeight * 0.7;
-      navbar.classList.toggle('navbar--scrolled', window.scrollY > heroThreshold);
+      navbar.classList.toggle('navbar--scrolled', window.scrollY > 80);
     } else {
       navbar.classList.add('navbar--scrolled');
     }
@@ -111,9 +110,9 @@ function initNavbar() {
         lastNavFocus = null;
       }
     };
-    
+
     mobileNavClose?.addEventListener('click', closeNav);
-    
+
     mobileNav.querySelectorAll('.mobile-nav__link').forEach(link => {
       link.addEventListener('click', closeNav);
     });
@@ -165,11 +164,11 @@ function initHeroV2() {
 
   // Hero entrance: staggered fade-up
   gsap.fromTo('.hero-v2__tagrow', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.05 });
-  gsap.fromTo('.hero-v2__title',  { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.18 });
-  gsap.fromTo('.hero-v2__rule',   { opacity: 0 }, { opacity: 1,        duration: 0.5, ease: 'none',       delay: 0.28 });
-  gsap.fromTo('.hero-v2__desc-row',{ opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.36 });
-  gsap.fromTo('.hero-v2__stage',  { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.50 });
-  gsap.fromTo('.hero-v2__stats',  { opacity: 0 }, { opacity: 1,        duration: 0.6, ease: 'power2.out', delay: 0.65 });
+  gsap.fromTo('.hero-v2__title', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.18 });
+  gsap.fromTo('.hero-v2__rule', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'none', delay: 0.28 });
+  gsap.fromTo('.hero-v2__desc-row', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.36 });
+  gsap.fromTo('.hero-v2__stage', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.50 });
+  gsap.fromTo('.hero-v2__stats', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out', delay: 0.65 });
 
   // Scramble text effect
   const scrambleEls = document.querySelectorAll('.scramble-text');
@@ -203,8 +202,8 @@ function initHeroV2() {
   document.querySelectorAll('.magnetic-btn').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
       const rect = btn.getBoundingClientRect();
-      const cx = rect.left + rect.width  / 2;
-      const cy = rect.top  + rect.height / 2;
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
       const dx = (e.clientX - cx) * 0.28;
       const dy = (e.clientY - cy) * 0.28;
       gsap.to(btn, { x: dx, y: dy, duration: 0.3, ease: 'power2.out' });
@@ -233,7 +232,7 @@ function initHeroV2() {
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
       gsap.to(bgImage, { xPercent: x * -1.5, yPercent: y * -1.5, duration: 1, ease: 'power2.out' });
-      
+
       if (spotlight) {
         spotlight.style.opacity = '1';
         spotlight.style.background = `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.06), transparent 40%)`;
@@ -262,7 +261,7 @@ function initHeroV2() {
     subtextEl.innerHTML = '<span class="cursor">_</span>';
     const typeWriter = () => {
       if (i < text.length) {
-        subtextEl.innerHTML = text.substring(0, i+1) + '<span class="cursor" style="animation:blink 1s infinite; color:#ff1a1a;">_</span>';
+        subtextEl.innerHTML = text.substring(0, i + 1) + '<span class="cursor" style="animation:blink 1s infinite; color:#ff1a1a;">_</span>';
         i++;
         setTimeout(typeWriter, Math.random() * 50 + 30);
       }
@@ -282,7 +281,7 @@ function initHeroV2() {
     let lineIdx = 0;
     let charIdx = 0;
     let currentHtml = "";
-    
+
     const termTypeWriter = () => {
       if (lineIdx >= lines.length) {
         setTimeout(() => {
@@ -294,7 +293,7 @@ function initHeroV2() {
         }, 3000);
         return;
       }
-      
+
       const line = lines[lineIdx];
       if (charIdx < line.length) {
         termEl.innerHTML = currentHtml + line.substring(0, charIdx + 1) + '<span style="animation:blink 1s infinite; color:#fff;">_</span>';
@@ -356,15 +355,15 @@ function initScrollAnimations() {
       }
     });
   }
-  
+
   // Hero Socials to Sidebar animation
   const heroSocials = document.getElementById('hero-socials');
   const socialBar = document.getElementById('social-bar');
-  
+
   if (heroSocials && socialBar) {
     // Initial state: hide social bar
     gsap.set(socialBar, { opacity: 0, x: 50 });
-    
+
     // Animate hero socials away
     gsap.to(heroSocials, {
       x: 150, // Move to right side
@@ -537,7 +536,7 @@ function initEventModal() {
 
     const closeBtn = content.querySelector('.event-modal__close');
     const closeBtnAlt = content.querySelector('.event-modal__close-btn');
-    
+
     closeBtn?.addEventListener('click', closeModal);
     closeBtnAlt?.addEventListener('click', closeModal);
     closeBtn?.focus();
@@ -545,7 +544,7 @@ function initEventModal() {
 
   if (!eventModalListenersAdded) {
     backdrop?.addEventListener('click', closeModal);
-    
+
     // Delegate click for event cards
     document.addEventListener('click', (e) => {
       const eventTrigger = e.target.closest('[data-event-id]');
@@ -559,7 +558,7 @@ function initEventModal() {
       if (e.key === 'Escape' && modal.classList.contains('open')) {
         closeModal();
       }
-      
+
       // Focus trapping
       if (e.key === 'Tab' && modal.classList.contains('open')) {
         const focusable = content.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -622,7 +621,7 @@ function initEventsPageScripts() {
       const target = new Date(cd.getAttribute('data-date')).getTime();
       const now = new Date().getTime();
       const diff = target - now;
-      if(diff < 0) return;
+      if (diff < 0) return;
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
       const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -631,10 +630,10 @@ function initEventsPageScripts() {
       const cdH = document.getElementById('cd-h');
       const cdM = document.getElementById('cd-m');
       const cdS = document.getElementById('cd-s');
-      if (cdD) cdD.innerText = d.toString().padStart(2,'0');
-      if (cdH) cdH.innerText = h.toString().padStart(2,'0');
-      if (cdM) cdM.innerText = m.toString().padStart(2,'0');
-      if (cdS) cdS.innerText = s.toString().padStart(2,'0');
+      if (cdD) cdD.innerText = d.toString().padStart(2, '0');
+      if (cdH) cdH.innerText = h.toString().padStart(2, '0');
+      if (cdM) cdM.innerText = m.toString().padStart(2, '0');
+      if (cdS) cdS.innerText = s.toString().padStart(2, '0');
     };
     if (cdInterval) clearInterval(cdInterval);
     cdInterval = setInterval(updateCD, 1000);
@@ -660,7 +659,7 @@ function initEventsPageScripts() {
       const term = e.target.value.toLowerCase();
       const activeFilterTab = document.querySelector('.events-filter__body .filter-pill.active');
       const currentFilter = activeFilterTab ? activeFilterTab.dataset.eventFilter : 'All';
-      
+
       document.querySelectorAll('.event-card[data-category]').forEach(card => {
         const cat = card.dataset.category;
         const title = card.dataset.title || '';
@@ -668,7 +667,7 @@ function initEventsPageScripts() {
         const matchesSearch = title.includes(term);
         card.style.display = (matchesCat && matchesSearch) ? '' : 'none';
       });
-      
+
       document.querySelectorAll('.events-section-block').forEach(block => {
         const hasVisible = Array.from(block.querySelectorAll('.event-card')).some(c => c.style.display !== 'none');
         block.style.display = hasVisible ? '' : 'none';
@@ -686,12 +685,12 @@ function initContactPageScripts() {
       const originalText = btn.innerHTML;
       btn.innerHTML = 'SENDING...';
       btn.disabled = true;
-      
+
       setTimeout(() => {
         const container = document.getElementById('contact-form-container');
         const original = container.innerHTML;
         container.innerHTML = '<div style="font-family:var(--font-mono); color:#ff4444; font-size:0.8rem; line-height:1.6;"><div>> init handshake...</div><div>> encrypting payload [256-bit AES]...</div><div>> establishing secure tunnel...</div><div style="margin-top:1rem;">[ERROR] Connection refused. No backend service configured to handle this request. Please contact us via email directly.</div></div>';
-        
+
         setTimeout(() => {
           container.innerHTML = original;
           initContactPageScripts();
@@ -710,7 +709,7 @@ function initSponsorsPageScripts() {
       const originalText = btn.innerHTML;
       btn.innerHTML = 'SUBMITTING...';
       btn.disabled = true;
-      
+
       setTimeout(() => {
         btn.innerHTML = originalText;
         btn.disabled = false;
@@ -775,12 +774,6 @@ function renderPage(routeName) {
 
   const renderFn = pages[routeName] || pages.home;
   container.innerHTML = renderFn();
-
-  if (routeName === 'home') {
-    container.style.paddingTop = '0';
-  } else {
-    container.style.paddingTop = '';
-  }
 
   window.currentRouteName = routeName;
   const navbar = document.getElementById('navbar');
@@ -944,9 +937,9 @@ async function init() {
   });
 
   // Global image error fallback
-  document.addEventListener('error', function(e) {
-    if(e.target.tagName && e.target.tagName.toLowerCase() === 'img') {
-      if(!e.target.dataset.fallbackApplied) {
+  document.addEventListener('error', function (e) {
+    if (e.target.tagName && e.target.tagName.toLowerCase() === 'img') {
+      if (!e.target.dataset.fallbackApplied) {
         e.target.dataset.fallbackApplied = "true";
         e.target.src = 'https://ui-avatars.com/api/?name=Image&background=000000&color=ffffff&font-size=0.33';
       }
@@ -956,6 +949,5 @@ async function init() {
   // Initialize new 3D graphics & cursor
   initGraphics();
 }
-
 // Start
 init();
