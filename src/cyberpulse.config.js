@@ -32,7 +32,12 @@ export const CYBERPULSE = {
 
   // ── Registration ────────────────────────────────────────────
   registration: {
-    endpoint: 'https://script.google.com/macros/s/AKfycbzMko1fNXMNcq6ONEKS0C890D-02h6wDRFMUU33s1V_qQxtqD5ON9Ef51fNTBhZQVYkag/exec',
+    endpoints: {
+      manit: 'https://script.google.com/macros/s/AKfycbxOl-wqQawjf0x6kHigAvYbdnlQQRY3mcDA_DNpf4XaENChTHo96FDAHTyalE0V6rSQ/exec',
+      solo: 'https://script.google.com/macros/s/AKfycbwnNBGaOREmlL5fyEdiZ4Tr6JrUUIGgRyDpXDH2o-LVKW2CKddauc3_myJ118tRll2S/exec',
+      combo: 'https://script.google.com/macros/s/AKfycbxA72Ou-34k-5r2aod7WW-NwLIJmga789AydX3l_BAWy3ereBiYquHh0OMwVlCX2Y_J/exec',
+      common: 'https://script.google.com/macros/s/AKfycbzMko1fNXMNcq6ONEKS0C890D-02h6wDRFMUU33s1V_qQxtqD5ON9Ef51fNTBhZQVYkag/exec'
+    },
     allowedManitDomains: ['@stu.manit.ac.in'],
     scholarPattern: /^\d{9,12}$/,  // adjust digits as needed
     yearOptions: ['1st Year', '2nd Year', '3rd Year', '4th Year', 'Other'],

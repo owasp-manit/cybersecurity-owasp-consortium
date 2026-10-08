@@ -205,16 +205,25 @@ export default function OutsideForm({ onClose }) {
             members: members.map(m => ({ ...m, scholar: 'N/A', phone: m.phone.replace(/\D/g, '').slice(-10) })),
           };
 
-      const endpoint = CYBERPULSE.registration.endpoint;
-      if (!endpoint) {
+      const endpoint = tab === 'solo' ? CYBERPULSE.registration.endpoints.solo : CYBERPULSE.registration.endpoints.combo;
+      const commonEndpoint = CYBERPULSE.registration.endpoints.common;
+      
+      if (!endpoint || !commonEndpoint) {
         console.warn('[CYBERPULSE] No registration endpoint configured.');
         await new Promise(r => setTimeout(r, 1200));
       } else {
-        const res = await fetch(endpoint, {
+        const fetchOptions = {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(payload),
-        });
+        };
+        
+        // Submit to both specific and common endpoints concurrently
+        const [res] = await Promise.all([
+          fetch(endpoint, fetchOptions),
+          fetch(commonEndpoint, fetchOptions).catch(e => console.error('Common endpoint failed', e))
+        ]);
+        
         const result = await res.json();
         if (result.status === 'error') throw new Error('Google Script Error: ' + result.message);
       }

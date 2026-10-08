@@ -44,8 +44,48 @@ export default function Registration() {
       data.isCombo = isCombo;
       data.isManit = isManit;
 
-      // The Apps Script URL you provided
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyckWPJnAb0Ln9x8E6Uc0RG7R1L49MSpQ1dQ_Ovz5SutHbYdxYgmxBU7Kc-5xLUPPZcSg/exec';
+      if (isCombo) {
+        data.members = [
+          {
+            name: data.member1Name,
+            email: data.member1Email,
+            phone: data.phone,
+            college: data.college,
+            year: data.year,
+            branch: data.branch,
+            scholar: data.scholarNo
+          },
+          {
+            name: data.member2Name,
+            email: data.member2Email,
+            phone: data.phone, // Same phone for team
+            college: data.college,
+            year: data.year,
+            branch: data.branch,
+            scholar: data.scholarNo
+          },
+          {
+            name: data.member3Name,
+            email: data.member3Email,
+            phone: data.phone,
+            college: data.college,
+            year: data.year,
+            branch: data.branch,
+            scholar: data.scholarNo
+          }
+        ];
+      }
+
+
+      // Determine the appropriate Apps Script URL based on user type
+      let scriptURL = '';
+      if (isManit) {
+        scriptURL = 'https://script.google.com/macros/s/AKfycbxOl-wqQawjf0x6kHigAvYbdnlQQRY3mcDA_DNpf4XaENChTHo96FDAHTyalE0V6rSQ/exec'; // MANITIANS
+      } else if (!isCombo) {
+        scriptURL = 'https://script.google.com/macros/s/AKfycbwnNBGaOREmlL5fyEdiZ4Tr6JrUUIGgRyDpXDH2o-LVKW2CKddauc3_myJ118tRll2S/exec'; // ExternalSolo
+      } else {
+        scriptURL = 'https://script.google.com/macros/s/AKfycbxA72Ou-34k-5r2aod7WW-NwLIJmga789AydX3l_BAWy3ereBiYquHh0OMwVlCX2Y_J/exec'; // ExternalCombo
+      }
       
       // We send it as text/plain to avoid Google CORS blocking the request
       const response = await fetch(scriptURL, {
