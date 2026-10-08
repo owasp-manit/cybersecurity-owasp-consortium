@@ -102,16 +102,25 @@ export default function ManitForm({ onClose }) {
         submittedAt: new Date().toISOString(),
       };
 
-      const endpoint = CYBERPULSE.registration.endpoint;
-      if (!endpoint) {
-        console.warn('[CYBERPULSE] No registration endpoint configured. Set CYBERPULSE.registration.endpoint in cyberpulse.config.js');
+      const endpoint = CYBERPULSE.registration.endpoints.manit;
+      const commonEndpoint = CYBERPULSE.registration.endpoints.common;
+      
+      if (!endpoint || !commonEndpoint) {
+        console.warn('[CYBERPULSE] No registration endpoint configured. Set CYBERPULSE.registration.endpoints in cyberpulse.config.js');
         await new Promise(r => setTimeout(r, 1200));
       } else {
-        const res = await fetch(endpoint, {
+        const fetchOptions = {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(payload),
-        });
+        };
+        
+        // Submit to both specific and common endpoints concurrently
+        const [res] = await Promise.all([
+          fetch(endpoint, fetchOptions),
+          fetch(commonEndpoint, fetchOptions).catch(e => console.error('Common endpoint failed', e))
+        ]);
+        
         const result = await res.json();
         if (result.status === 'error') throw new Error('Google Script Error: ' + result.message);
       }
