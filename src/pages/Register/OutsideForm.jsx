@@ -224,8 +224,20 @@ export default function OutsideForm({ onClose }) {
           fetch(commonEndpoint, fetchOptions).catch(e => console.error('Common endpoint failed', e))
         ]);
         
-        const result = await res.json();
-        if (result.status === 'error') throw new Error('Google Script Error: ' + result.message);
+        const text = await res.text();
+        try {
+          const result = JSON.parse(text);
+          if (result.status === 'error') {
+            const msg = result.message.toLowerCase();
+            if (!msg.includes('email') && !msg.includes('too many times')) {
+              throw new Error(result.message);
+            }
+          }
+        } catch (e) {
+          if (e.message && !e.message.includes('Unexpected token') && !e.message.includes('is not valid JSON')) {
+            throw new Error('Server Error: ' + e.message);
+          }
+        }
       }
 
       setRegId(id);
