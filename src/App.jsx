@@ -1,12 +1,9 @@
-import React, { useRef, useState, useEffect, useCallback, Suspense, lazy } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Slider from './components/Slider';
 import { Routes, Route, NavLink, Link, useLocation, Navigate } from 'react-router-dom'
 import { EMAIL, FORM_ENDPOINT, SOCIALS, events, past, stats, programs, journey, collabs, team, gallery } from './data.js'
 import { mountNetworkBg3D } from './network-bg-3d.js'
 import manitImg from './assets/manit.jpg'
-
-// Lazy-load the heavy registration page so it doesn't bloat initial bundle
-const Registration = lazy(() => import('./pages/Register'))
 
 const fmt = d => new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()
 const pad = n => String(n).padStart(3, '0')
@@ -104,7 +101,6 @@ function Modal({ e, close }) {
     <small className="mono">{e.tag.toUpperCase()} · {fmt(e.date)}</small><h2 className="t sm">{e.title}</h2><p>{e.desc || 'Details coming soon.'}</p>
     <p className="mono sm">LOC // {e.place || 'Auditorium, MANIT'}</p>
     {e.schedule && <ul className="sched">{e.schedule.map(s => <li key={s}>{s}</li>)}</ul>}
-    {status(e.date) !== 'COMPLETED' && <Link className="btn red" to="/register" onClick={close}>REGISTER →</Link>}
   </div></div>
 }
 function useCountdown(date) {
@@ -173,7 +169,6 @@ function Nav() {
         {LINKS.map(([to, l]) => (
           <NavLink key={to} to={to} end>{l}</NavLink>
         ))}
-        <NavLink to="/register" className="reg">CYBERPULSE</NavLink>
       </div>
 
       {/* Burger for mobile */}
@@ -192,7 +187,6 @@ function Nav() {
           {LINKS.map(([to, l]) => (
             <NavLink key={to} to={to} end onClick={() => setOpen(false)}>{l}</NavLink>
           ))}
-          <NavLink to="/register" className="reg mobile-reg" onClick={() => setOpen(false)}>CYBERPULSE</NavLink>
           <div className="nav-links-sep" aria-hidden="true" />
           <div className="nav-socials-row"><Socials /></div>
         </div>
@@ -285,7 +279,7 @@ function Home() {
 
   // Derive `go` from body.ready — works both on first load AND on back-navigation.
   // body.ready is toggled by App whenever `ready` state changes, so this is
-  // always accurate even when Home remounts after visiting /register.
+  // always accurate even when Home remounts after visiting another page.
   const [go, setGo] = useState(() => {
     try { return document.body.classList.contains('ready') || sessionStorage.getItem('pre') === '1' } catch { return document.body.classList.contains('ready') }
   })
@@ -300,21 +294,6 @@ function Home() {
     }, 100)
     return () => { clearTimeout(tm); clearInterval(chk) }
   }, [])
-
-  const [showPromo, setShowPromo] = useState(false);
-  const promoShown = useRef(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Trigger when user scrolls past 80% of the hero (viewport height)
-      if (!promoShown.current && window.scrollY > window.innerHeight * 0.8) {
-        promoShown.current = true;
-        setShowPromo(true);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const mv = e => {
     if (matchMedia('(hover:none), (prefers-reduced-motion: reduce)').matches) return
@@ -429,24 +408,12 @@ function Home() {
       <div className="head"><h2 className="t">Events &amp;<br />Experiences</h2><div><p>Explore workshops, CTFs, technical sessions, hackathons and more.</p><Link className="btn" to="/events">VIEW ALL EVENTS →</Link></div></div>
       <div className="feat"><Img src="event.jpg" label="Featured event (public/event.jpg)" cls="bgimg" /><div className="fin">
         <span className="tag">{f.tag.toUpperCase()}</span> <span className="tag dim">[ FEATURED ]</span><small className="mono d">{fmt(f.date)}</small><h3 className="t sm">{f.title}</h3><p>{f.desc}</p><small>LOC // {f.place}</small><br />
-        <Link className="btn" to="/register">KNOW MORE →</Link></div></div>
+        <button className="btn" onClick={() => setSel(f)}>VIEW DETAILS →</button></div></div>
       <Slider autoplay={4000} className="events-slider">{events.slice(1).map((e, i) => <EvCard key={i} e={e} i={i} open={setSel} />)}</Slider></Win>
     <Win file="network.bat" status={<><span className="pulse-dot">●</span> CONNECTED</>}>
       <div className="center"><Eye>04 — CONNECTED BY SECURITY</Eye><h2 className="t">Collaborations</h2><p>Working together for a stronger cybersecurity ecosystem.</p></div>
       <div className="collab-grid">{collabs.map(([img, n], i) => <Rv key={n} d={i}><div className="collab-card"><div className="collab-init"><img src={img} alt={n} /></div><small>{n.toUpperCase()}</small></div></Rv>)}</div></Win>
     {sel && <Modal e={sel} close={() => setSel(null)} />}
-    {showPromo && (
-      <div className="overlay" onClick={() => setShowPromo(false)} style={{zIndex: 9999}}>
-        <div className="win modal visible" role="dialog" aria-modal="true" aria-label="CyberPulse Registration" onClick={x => x.stopPropagation()}>
-          <button className="x" aria-label="Close" onClick={() => setShowPromo(false)}>✕</button>
-          <small className="mono">UPCOMING EVENT · 10 OCT 2026</small>
-          <h2 className="t sm">CYBERPULSE</h2>
-          <p style={{marginBottom: '1rem'}}>Join the event on 10th Oct and get a chance to win a watch, powerbank, earbuds, and other prizes worth <b>₹7K</b>!</p>
-          <p className="mono sm">LOC // Auditorium, MANIT</p>
-          <Link className="btn red" to="/register" onClick={() => setShowPromo(false)}>REGISTER NOW →</Link>
-        </div>
-      </div>
-    )}
   </>
 }
 const Head = ({ eye, a, b, children }) => <header className="phead"><Eye>{eye}</Eye><h1 className="t"><span className="out">{a}</span><br />{b}</h1>{children}</header>
@@ -471,11 +438,7 @@ function EvCard({ e, i, open }) {
     <div className="ebody"><div className="row"><span className="tag">{e.tag.toUpperCase()}</span><span className={`badge ${s.toLowerCase()}`}>● {s}</span></div>
       <h3>{e.title}</h3><p>{e.desc || 'Details coming soon.'}</p>
       <div className="row foot"><small>LOC // {e.place || 'Auditorium, MANIT'}</small>
-        {e.title.toLowerCase().includes('cyberpulse') && s !== 'COMPLETED' ? (
-          <Link to="/register">REGISTER →</Link>
-        ) : (
-          <button onClick={() => open(e)}>{s === 'COMPLETED' ? 'VIEW DETAILS' : 'REGISTER'} →</button>
-        )}
+        <button onClick={() => open(e)}>VIEW DETAILS →</button>
       </div></div></article></Rv>
 }
 function Events() {
@@ -486,7 +449,7 @@ function Events() {
   return <main className="page"><Head eye="EVENTS DATABASE" a="All" b="Events"><p className="lead">Workshops, CTFs, talks, hackathons and more, past and upcoming.</p>
     <div className="mini row3">{[[events.length + past.length, 'TOTAL EVENTS'], [events.length, 'UPCOMING'], [past.length, 'COMPLETED']].map(([a, b]) => <div key={b}><b>{a}</b><small>{b}</small></div>)}</div></Head>
     <div className="next"><div><small className="mono">SYS // NEXT_EVENT</small><h2 className="t">{nx.title}</h2><small>{fmt(nx.date)} | LOC // {nx.place}</small>
-      <div className="nbtns"><Link className="btn red" to="/register">REGISTER →</Link><button className="btn" onClick={() => setSel(nx)}>DETAILS</button></div></div>
+      <div className="nbtns"><button className="btn" onClick={() => setSel(nx)}>VIEW DETAILS →</button></div></div>
       <div className="cd" aria-label="Countdown">{c.map(([l, n]) => <div key={l}><b key={n} className="tick">{String(n).padStart(2, '0')}</b><small>{l.toUpperCase()}</small></div>)}</div></div>
     <div className="tools"><div className="chips">{tags.map(t => <button key={t} className={f === t ? 'on' : ''} onClick={() => setF(t)}>{t}</button>)}</div>
       <input placeholder="Search events..." value={q} onChange={e => setQ(e.target.value)} aria-label="Search events" />
@@ -517,18 +480,6 @@ function Gallery() {
   const cur = sel !== null && list[sel]
   return <main className="page"><Head eye="GALLERY" a="Event" b="Cutouts" />
     <div className="chips gf">{evs.map(e => <button key={e} className={f === e ? 'on' : ''} onClick={() => { setF(e); setSel(null) }}>{e}</button>)}</div>
-
-    {/* QR Code spotlight – shown when filter includes it */}
-    {list.find(g => g.qr) && (
-      <div className="qr-spotlight">
-        <small className="mono">// REGISTER VIA QR</small>
-        <div className="qr-wrap">
-          <img src={`${import.meta.env.BASE_URL}gallery/qr.jpg`} alt="CYBERPULSE Registration QR Code" />
-        </div>
-        <p>Scan to register for <strong>CYBERPULSE</strong></p>
-        <Link className="btn red" to="/register">REGISTER ONLINE →</Link>
-      </div>
-    )}
 
     <Slider className="gallery-slider" autoplay={3000}>
       {numbered.slice(0, 4).map((item, k) => <div key={k} className="coverflow-slide">
@@ -626,15 +577,6 @@ function TerminalWipe() {
   return <div className={`twipe ${wiping ? 'active' : ''}`}><span className="mono">cd {pathname === '/' ? '/home' : pathname} ...</span></div>;
 }
 
-/* ---------- loading fallback ---------- */
-function PageLoader() {
-  return (
-    <div style={{ minHeight: '100svh', display: 'grid', placeItems: 'center', fontFamily: 'var(--mono)', color: 'var(--mute)', fontSize: '.8rem', letterSpacing: '.12em' }}>
-      LOADING...
-    </div>
-  )
-}
-
 /* ---------- app shell ---------- */
 export default function App() {
   const [scrollPct, setScrollPct] = useState(0)
@@ -708,19 +650,16 @@ export default function App() {
     <Nav />
     <aside className="rail"><Socials /></aside>
 
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
+    <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/events" element={<Events />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/team" element={<Team />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/register" element={<Registration />} />
         {/* Catch-all: redirect unknown paths to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </Suspense>
     <Footer />
   </>
 }

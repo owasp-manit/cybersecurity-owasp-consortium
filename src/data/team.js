@@ -29,10 +29,29 @@ export const coreTeam = [
   { name: 'Riddhi Jaiswal', role: 'Designer Head', linkedin: null, image: '/src/assets/team/Riddhi-Jaiswal.jpg' },
   { name: 'Kavya Chanap', role: 'Video-Editing Head', linkedin: 'https://www.linkedin.com/in/kavya-chanap-05537b348', image: '/src/assets/team/Kavya-Chanap.jpg' },
   { name: 'Sanjana Kori', role: 'Content Head', linkedin: 'https://www.linkedin.com/in/sanjna-kori-245b5232b', image: '/src/assets/team/Sanjana-Kabir.jpg' },
-  { name: 'Pranjali Tiwari', role: 'Designer Lead', linkedin: null, image: '/src/assets/team/pranjali-tiwari.jpg' },
+  { name: 'Pranjali Tiwari', role: 'Designer Lead', linkedin: null, image: '/src/assets/team/Pranjali-Tiwari.jpg' },
   { name: 'Prabhat Singh Raj', role: 'Content Lead', linkedin: null, image: '/src/assets/team/Prabhat-Singh-Raj.jpg' },
   { name: 'Khushboo Gaud', role: 'PR Head', linkedin: 'https://www.linkedin.com/in/khushboo-gond-046919356', image: '/src/assets/team/Khushboo-Gaud.jpg' },
   { name: 'Vishal Sharma', role: 'Sponsorship Head', linkedin: null, image: '/src/assets/team/vishal-sharma.jpg' },
+];
+
+export const upcomingLeads = [
+  { name: 'Saurav Sahu', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Saurav-Sahu.jpg' },
+  { name: 'Sharsti Garg', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Sharsti-Garg.jpg' },
+  { name: 'Shubham Atram', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Shubham-Atram.jpg' },
+  { name: 'Amit Baghel', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Amit-Baghel.jpg' },
+  { name: 'Chirag Gurjar', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Chirag-Gurjar.jpg' },
+  { name: 'Dev Sharma', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Dev-Sharma.jpg' },
+  { name: 'Himanshi Dangi', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Himanshi-Dangi.jpg' },
+  { name: 'Kanishk Tiwari', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Kanishk-Tiwari.jpg' },
+  { name: 'Manya Mehta', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Manya-Mehta.jpg' },
+  { name: 'Prarthana Sharma', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Prarthana-Sharma.jpg' },
+  { name: 'Shlok Gupta', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Shlok-Gupta.jpg' },
+  { name: 'Sumit Maurya', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Sumit-Maurya.jpg' },
+  { name: 'Viha Sooden', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Viha-Sooden.jpg' },
+  { name: 'Nitin Kumar', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Nitin-Kumar.jpg' },
+  { name: 'Yashika Gupta', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Yashika-Gupta.jpg' },
+  { name: 'Khemendra Singh Jatav', role: 'Upcoming Lead', linkedin: null, image: '/src/assets/team/Khemendra-Singh-Jatav.jpg' },
 ];
 
 export const members = [

@@ -5,7 +5,6 @@
 
 export const EMAIL = 'owasp.chap.manit@gmail.com'
 export const FORM_ENDPOINT = ''        // Formspree / Web3Forms POST URL
-export const REG_URL = '/register'    // Registration page route
 export const VENUE = 'Auditorium, MANIT'
 
 export const SOCIALS = [
@@ -17,7 +16,6 @@ export const SOCIALS = [
 
 // ── Upcoming Events ───────────────────────────────────────────
 export const events = [
-  { title: 'CYBERPULSE', date: '2026-10-10', tag: 'Workshop', place: 'Auditorium, MANIT', desc: 'Ethical Hacking & Web Security Workshop. Dive into real-world hacking demos, bug bounty basics, AI in cybersecurity, and more.' },
   { title: 'NetShield Workshop', date: '2026-10-15', tag: 'Workshop', place: 'Auditorium, MANIT', desc: 'Practical exposure to ethical hacking, networking, and system defense.' },
   { title: 'Capture The Flag (Internal)', date: '2026-11-08', tag: 'CTF', place: 'Auditorium, MANIT', desc: 'Test your skills across web exploitation, crypto, forensics, and reverse engineering.' },
   { title: 'Linux for Security Professionals', date: '2026-11-19', tag: 'Tech Talk', place: 'Auditorium, MANIT', desc: 'Hands-on session on Linux fundamentals, bash scripting, and command-line security tools.' },
@@ -26,6 +24,7 @@ export const events = [
 
 // ── Past Events ───────────────────────────────────────────────
 export const past = [
+  { title: 'CYBERPULSE', date: '2026-10-10', tag: 'Workshop', place: 'Auditorium, MANIT', desc: 'Ethical Hacking & Web Security Workshop. Dive into real-world hacking demos, bug bounty basics, AI in cybersecurity, and more.' },
   { title: 'CyberHunter 2.0',  date: '2026-02-28', tag: 'Competition' },
   { title: 'Noobathon',        date: '2025-10-18', tag: 'Hackathon'   },
   { title: 'Cyber Hunter 1.0', date: '2025-09-15', tag: 'Initiative'  },
@@ -64,6 +63,9 @@ import gdgImg from './assets/gdg.jpg'
 import awsImg from './assets/aws-ug-bhopal.svg'
 import mlBhopalImg from './assets/ml_bhopal.png'
 import iseaImg from './assets/isea.png'
+import pradeepSinghYadavImg from './assets/team/Pradeep-Singh-Yadav.jpg'
+import muditKalyaImg from './assets/team/Mudit-Kalya.jpeg'
+import pranjaliTiwariImg from './assets/team/pranjali-tiwari.jpg'
 
 // ── Collaborators ─────────────────────────────────────────────
 export const collabs = [
@@ -85,7 +87,7 @@ export const team = {
   ],
   'Final Year Leads': [
     { name: 'Pulkit Gangil',          role: 'President',      img: 'Pulkit-Gangil.jpg',     linkedin: '#', github: '#' },
-    { name: 'Pradeep Singh Yadav',    role: 'Vice President', img: '',                      linkedin: '#', github: '#' },
+    { name: 'Pradeep Singh Yadav',    role: 'Vice President', img: '', photo: pradeepSinghYadavImg, linkedin: '#', github: '#' },
     { name: 'Abizer Mhowwala',        role: 'Treasurer',      img: 'Abizer-Mhowwala.jpg',   linkedin: '#', github: '#' },
   ],
   'Core Team': [
@@ -100,9 +102,27 @@ export const team = {
     { name: 'Sanjana Kabir',          role: 'Core Member',    img: 'Sanjana-Kabir.jpg',     linkedin: '#', github: '#' },
     { name: 'Shivansh Kumar Sahu',    role: 'Core Member',    img: 'Shivansh-Kumar-Sahu.jpg',linkedin: '#', github: '#' },
     { name: 'Ashu Debnath',           role: 'Core Member',    img: 'Ashu-Debnath.jpg',      linkedin: '#', github: '#' },
-    { name: 'Mudit Kalya',            role: 'Core Member',    img: 'Mudit-Kalya.jpg',       linkedin: '#', github: '#' },
-    { name: 'Pranjali Tiwari',        role: 'Core Member',    img: 'Pranjali-Tiwari.jpg',   linkedin: '#', github: '#' },
+    { name: 'Mudit Kalya',            role: 'Core Member',    img: '', photo: muditKalyaImg, linkedin: '#', github: '#' },
+    { name: 'Pranjali Tiwari',        role: 'Core Member',    img: '', photo: pranjaliTiwariImg, linkedin: '#', github: '#' },
     { name: 'Prabhat Singh Raj',      role: 'Core Member',    img: 'Prabhat-Singh-Raj.jpg', linkedin: '#', github: '#' },
+  ],
+  'Upcoming Leads': [
+    { name: 'Saurav Sahu', role: 'Upcoming Lead', img: 'Saurav-Sahu.jpg' },
+    { name: 'Sharsti Garg', role: 'Upcoming Lead', img: 'Sharsti-Garg.jpg' },
+    { name: 'Shubham Atram', role: 'Upcoming Lead', img: 'Shubham-Atram.jpg' },
+    { name: 'Amit Baghel', role: 'Upcoming Lead', img: 'Amit-Baghel.jpg' },
+    { name: 'Chirag Gurjar', role: 'Upcoming Lead', img: 'Chirag-Gurjar.jpg' },
+    { name: 'Dev Sharma', role: 'Upcoming Lead', img: 'Dev-Sharma.jpg' },
+    { name: 'Himanshi Dangi', role: 'Upcoming Lead', img: 'Himanshi-Dangi.jpg' },
+    { name: 'Kanishk Tiwari', role: 'Upcoming Lead', img: 'Kanishk-Tiwari.jpg' },
+    { name: 'Manya Mehta', role: 'Upcoming Lead', img: 'Manya-Mehta.jpg' },
+    { name: 'Prarthana Sharma', role: 'Upcoming Lead', img: 'Prarthana-Sharma.jpg' },
+    { name: 'Shlok Gupta', role: 'Upcoming Lead', img: 'Shlok-Gupta.jpg' },
+    { name: 'Sumit Maurya', role: 'Upcoming Lead', img: 'Sumit-Maurya.jpg' },
+    { name: 'Viha Sooden', role: 'Upcoming Lead', img: 'Viha-Sooden.jpg' },
+    { name: 'Nitin Kumar', role: 'Upcoming Lead', img: 'Nitin-Kumar.jpg' },
+    { name: 'Yashika Gupta', role: 'Upcoming Lead', img: 'Yashika-Gupta.jpg' },
+    { name: 'Khemendra Singh Jatav', role: 'Upcoming Lead', img: 'Khemendra-Singh-Jatav.jpg' },
   ],
 }
 

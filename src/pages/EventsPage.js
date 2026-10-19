@@ -99,7 +99,7 @@ export function renderEventsPage() {
                 <p style="color:var(--color-text-secondary); margin-bottom:1.5rem; font-size:0.9rem; line-height:1.55; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; flex-grow:1;">${event.description}</p>
                 <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:0.75rem; color:var(--color-text-dim); border-top:1px solid var(--color-border); padding-top:1rem; margin-top:auto;">
                   <span>LOC // ${event.location}</span>
-                  <button style="background:transparent; border:none; color:var(--color-white); cursor:pointer; font-family:var(--font-mono); font-size:0.75rem;" data-event-id="${event.id}">REGISTER →</button>
+                  <button style="background:transparent; border:none; color:var(--color-white); cursor:pointer; font-family:var(--font-mono); font-size:0.75rem;" data-event-id="${event.id}">VIEW DETAILS →</button>
                 </div>
               </div>
             `).join('')}

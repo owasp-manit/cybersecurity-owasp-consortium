@@ -11,7 +11,6 @@ import { renderGalleryPage } from './pages/GalleryPage.js';
 import { renderSponsorsPage } from './pages/SponsorsPage.js';
 import { renderTeamPage } from './pages/TeamPage.js';
 import { renderContactPage } from './pages/ContactPage.js';
-import { renderRegistrationPage, initRegistrationPage } from './pages/RegistrationPage.js';
 import { events } from './data/events.js';
 import { initGraphics } from './graphics.js';
 import { mountNetworkBg3D } from './network-bg-3d.js';
@@ -524,7 +523,6 @@ function initEventModal() {
           <p class="event-modal__desc">${event.speakers.join(', ')}</p>
         ` : ''}
         <div class="event-modal__cta-row">
-          ${event.registrationLink ? `<a href="${event.registrationLink}" target="_blank" rel="noopener" class="btn btn--primary">Register <span class="btn-arrow">→</span></a>` : `<button class="btn btn--primary" disabled style="opacity:0.5; cursor:not-allowed;">Registration Closed</button>`}
           <button class="btn event-modal__close-btn" style="cursor:pointer;">Close</button>
         </div>
       </div>
@@ -774,15 +772,10 @@ function renderPage(routeName) {
     sponsors: renderSponsorsPage,
     team: renderTeamPage,
     contact: renderContactPage,
-    register: renderRegistrationPage,
   };
 
   const renderFn = pages[routeName] || pages.home;
   container.innerHTML = renderFn();
-
-  if (routeName === 'register') {
-    initRegistrationPage();
-  }
 
   if (routeName === 'home') {
     container.style.paddingTop = '0';
